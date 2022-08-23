@@ -1,0 +1,20 @@
+.page {
+  height: 100%;
+  margin: 0;
+}
+
+.page__body {
+  margin: 0 auto;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: $basic-black;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  align-content: start;
+  position: relative;
+}

@@ -1,0 +1,9 @@
+<a *ngIf="path; else button"
+  class="button {{ uniqueClass }}" [routerLink]="[path]">
+  {{ textContent }}
+</a>
+<ng-template #button>
+  <button class="button {{ uniqueClass }}">
+    {{ textContent }}
+  </button>
+</ng-template>

@@ -1,0 +1,97 @@
+<main class="page-form">
+  <div class="page-form__header">
+    <h1 class="page-form__title">Knitting to order</h1>
+  </div>
+  <p class="page-form__description">We will be happy to make your wishes come true! Fill out a simple order form and we will contact you to clarify the details.</p>
+  <form class="page-form__form form" method="get" action="https://echo.htmlacademy.ru/">
+    <fieldset class="form__fieldset form__type">
+      <legend class="form__legend">Type</legend>
+      <ul class="form__list">
+        <li class="form__item">
+          <input class="visually-hidden form__input form__input--radio" type="radio" name="type" id="accessory" value="accessory" checked>
+          <label for="accessory">Decore accessory</label>
+        </li>
+        <li class="form__item">
+          <input class="visually-hidden form__input form__input--radio" type="radio" name="type" id="toy" value="toy">
+          <label for="toy">Toy</label>
+        </li>
+      </ul>
+    </fieldset>
+    <div class=form__wrapper>
+      <fieldset class="form__fieldset form__color">
+        <legend class="form__legend">Color</legend>
+        <ul class="form__list">
+          <li class="form__item">
+            <input class="visually-hidden form__input form__input--checkbox" type="checkbox" name="color" id="white" value="white" checked>
+            <label for="white">White</label>
+          </li>
+          <li class="form__item">
+            <input class="visually-hidden form__input form__input--checkbox" type="checkbox" name="color" id="grey" value="grey" checked>
+            <label for="grey">Grey</label>
+          </li>
+          <li class="form__item">
+            <input class="visually-hidden form__input form__input--checkbox" type="checkbox" name="color" id="tiffany" value="tiffany">
+            <label for="tiffany">"Tiffany"</label>
+          </li>
+          <li class="form__item">
+            <input class="visually-hidden form__input form__input--checkbox" type="checkbox" name="color" id="black" value="black">
+            <label for="black">Black</label>
+          </li>
+          <li class="form__item">
+            <input class="visually-hidden form__input form__input--checkbox" type="checkbox" name="color" id="pink" value="pink">
+            <label for="pink">Pink</label>
+          </li>
+          <li class="form__item">
+            <input class="visually-hidden form__input form__input--checkbox" type="checkbox" name="color" id="orange" value="orange">
+            <label for="orange">Orange</label>
+          </li>
+        </ul>
+      </fieldset>
+    </div>
+    <fieldset class="form__fieldset form__name">
+      <legend class="form__legend">Full name</legend>
+      <div class="form__name-wrapper">
+        <label for="first-name">First name:</label>
+        <input class="form__input-text" type="text" name="name" id="first-name" placeholder="Enter your first name*" required>
+      </div>
+      <div class="form__name-wrapper">
+        <label for="last-name">Last name:</label>
+        <input class="form__input-text" type="text" name="name" id="last-name" placeholder="Enter your last name*" required>
+      </div>
+      <div class="form__name-wrapper">
+        <label for="father-name">Middle name:</label>
+        <input class="form__input-text" type="text" name="name" id="father-name" placeholder="Enter your middle name if you want">
+      </div>
+    </fieldset>
+    <div class="form__wrapper">
+      <fieldset class="form__fieldset form__telephone">
+        <legend class="form__legend">Phone</legend>
+        <label class="visually-hidden" for="telephone">Phone number</label>
+        <input class="form__input-text form__input-text--tel" type="tel" name="telephone" id="telephone" placeholder="+7 ХХХ ХХХ ХХ ХХ*" pattern="^[0-9-+\s()]*$" required minlength="11" maxlength="16">
+        <svg width="25" height="24">
+          <use xlink:href="img/sprite.svg#phone"></use>
+        </svg>
+      </fieldset>
+      <fieldset class="form__fieldset form__email">
+        <legend class="form__legend">E-mail</legend>
+        <label class="visually-hidden" for="email">Your Email</label>
+        <input class="form__input-text form__input-text--email" type="email" name="email" id="email" placeholder="Your Email*" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
+        <svg width="32" height="21">
+          <use xlink:href="img/sprite.svg#mail"></use>
+        </svg>
+      </fieldset>
+    </div>
+    <fieldset class="form__fieldset form__additional">
+      <legend class="form__legend">Additional</legend>
+      <label class="visually-hidden" for="additional-text">Additional requests for the order</label>
+      <textarea class="form__additional-text" name="additional-text" id="additional-text" placeholder="Describe all your wishes for the order"></textarea>
+    </fieldset>
+    <div class="form__footer">
+      <p class="form__footnote">*Required fields</p>
+      <app-button
+        [textContent]="'Place order'"
+        [uniqueClass]="'form__button-submit'"
+      ></app-button>
+    </div>
+  </form>
+</main>

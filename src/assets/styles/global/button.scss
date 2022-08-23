@@ -1,0 +1,103 @@
+.button {
+  min-height: 52px;
+  border: 2px solid $basic-dark-grey;
+  padding: 5px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: $basic-dark-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: $basic-white;
+  cursor: pointer;
+}
+
+.button:hover,
+.botton:focus {
+  background-color: $basic-dark-grey;
+  color: $basic-white;
+}
+
+.button:active {
+  color: rgba($basic-white, 0.3);
+}
+
+.button-order {
+  @media (min-width: $tablet-width) {
+    margin-right: 376px;
+    font-size: 17px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 292px;
+  }
+}
+
+.button-send-review {
+  max-width: 260px;
+
+  @media (min-width: $tablet-width) {
+    position: absolute;
+    right: 50px;
+    top: 79px;
+    min-width: 175px;
+    font-size: 17px;
+  }
+
+  @media (min-width: $desktop-width) {
+    right: 0;
+    top: 80px;
+  }
+}
+
+.button-send-email {
+  max-width: 260px;
+  margin: 0 auto 39px;
+
+  @media (min-width: $tablet-width) {
+    max-width: 230px;
+    margin-bottom: 0;
+    font-size: 17px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0;
+    margin-left: 224px;
+  }
+}
+
+.button-review {
+  min-width: 130px;
+  min-height: 50px;
+  border: 1px solid $light-grey-border;
+  background-color: $basic-white;
+  cursor: pointer;
+
+  @media (min-width: $tablet-width) {
+    min-width: 88px;
+    font-size: 17px;
+    border: none;
+  }
+}
+
+.button-review:hover,
+.button-review:focus {
+  opacity: 0.6;
+}
+
+.button-review:active {
+  opacity: 0.3;
+}
+
+.button-review--previous::before {
+  content: url("../../img/huge-arrow-left.svg");
+}
+
+.button-review--next::before {
+  content: url("../../img/huge-arrow-right.svg");
+}

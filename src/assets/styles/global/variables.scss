@@ -1,0 +1,32 @@
+/* Colors */
+$basic-black: #000000;
+$basic-white: #ffffff;
+$basic-dark-grey: #444444;
+$light-green: #63d1bb;
+$light-green-hover: #59d5bc;
+$dark-green: #56c3b2;
+$dark-green-hover: #46c1ae;
+$category-image: #149080;
+$link-input: #62d1ba;
+$light-grey-border: #ececec;
+$decoration-grey: #f1f1f1;
+$map-pin: #6bc6b3;
+$footer-divider: #e5e5e5;
+$modal-shadow: rgba(0, 1, 1, 0.25);
+$grey-background: #fafafa;
+
+/* Mixins */
+@mixin padding-left-right {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@mixin padding-tablet {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+/* Media */
+$tablet-width: 768px;
+$desktop-width: 1150px;
+$mobile-width-only: 767px;

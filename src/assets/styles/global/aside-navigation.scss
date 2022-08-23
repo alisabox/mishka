@@ -1,0 +1,30 @@
+.aside-navigation {
+  display: none;
+  padding-left: 50px;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: transparent;
+
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: 184px 184px;
+    column-gap: 35px;
+  }
+}
+
+.aside-navigation__item {
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.aside-navigation__item a {
+  min-width: 186px;
+  min-height: fit-content;
+  padding: 0;
+  padding-top: 18px;
+}

@@ -1,0 +1,33 @@
+.page-footer {
+  background-color: $decoration-grey;
+}
+
+.page-footer__wrapper {
+  @include padding-left-right;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    min-height: 34px;
+    justify-content: space-between;
+    padding-top: 51px;
+    padding-bottom: 58px;
+
+    @include padding-tablet;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 1150px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+}
+
+.page-footer__logo {
+  display: none;
+
+  @media (min-width: $tablet-width) {
+    display: block;
+    width: 102px;
+    height: 34px;
+  }
+}

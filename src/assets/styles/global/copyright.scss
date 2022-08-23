@@ -1,0 +1,37 @@
+.copyright {
+  min-height: 79px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: $tablet-width) {
+    min-height: 34px;
+  }
+}
+
+.copyright__text {
+  margin-right: 27px;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 18px;
+
+  @media (min-width: $desktop-width) {
+    margin-right: 29px;
+    padding-bottom: 4px;
+  }
+}
+
+.copyright__link {
+  fill: $light-green;
+
+  &:hover,
+  &:focus {
+    fill: $dark-green-hover;
+  }
+
+  &:active {
+    fill: $dark-green-hover;
+    opacity: 0.3;
+  }
+}

@@ -1,0 +1,19 @@
+<section class="contacts">
+  <div class="contacts__wrapper">
+    <h2 class="contacts__title">Access</h2>
+    <dl class="contacts__list">
+      <dt class="contacts__email">e-mail:</dt>
+      <dd class="contacts__text"><a href="mailto:info@mimimishkashop.com">info@mimimishkashop.com</a></dd>
+      <dt class="contacts__adress">address:</dt>
+      <dd class="contacts__text">г. Санкт-Петербург<br>ул.&nbsp;Большая&nbsp;Конюшенная<br>д. 19/8, офис 101</dd>
+    </dl>
+    <div class="contacts__map-wrapper">
+      <div class="contacts__map" id="map" aria-label="Access to the shop"></div>
+    </div>
+    <app-button
+      [textContent]="'Message us'"
+      [path]="''"
+      [uniqueClass]="'button-send-email'"
+    ></app-button>
+  </div>
+</section>

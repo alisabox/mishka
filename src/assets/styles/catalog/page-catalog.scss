@@ -1,0 +1,74 @@
+.page-catalog {
+  position: relative;
+
+  @media (min-width: $tablet-width) {
+    top: -65px;
+    margin-bottom: -65px;
+  }
+
+  @media (min-width: $desktop-width) {
+    top: -44px;
+    margin-bottom: -44px;
+    border-top: 1px solid $light-grey-border;
+  }
+}
+
+.page-catalog__title {
+  padding: 73px 30px;
+  margin: 0;
+  text-align: center;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 27px;
+  line-height: 30px;
+  word-break: break-word;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 101px;
+    font-size: 43px;
+    line-height: 50px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 1150px;
+    margin: 0 auto;
+    padding-bottom: 104px;
+    box-sizing: border-box;
+    font-size: 53px;
+    line-height: 57px;
+  }
+}
+
+.page-catalog__header {
+  position: relative;
+  margin-bottom: 30px;
+  background-color: $decoration-grey;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 79px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 122px;
+  }
+}
+
+.page-catalog__header::after {
+  @media (min-width: $tablet-width) {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    height: 24px;
+    width: 100%;
+    background-image: url("../../img/zigzag-fill-desktop.svg");
+    background-repeat: repeat-x;
+  }
+
+  @media (min-width: $desktop-width) {
+    height: 34px;
+    bottom: -8px;
+    background-size: 1150px;
+  }
+}

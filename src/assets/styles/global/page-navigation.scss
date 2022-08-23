@@ -1,0 +1,117 @@
+.page-navigation__toggle {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 29px;
+  right: 30px;
+  border: none;
+  padding: 0;
+  background-color: $basic-white;
+
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.page-navigation .page-navigation__wrapper {
+  @media (max-width: $mobile-width-only) {
+    display: none;
+  }
+}
+
+.page-navigation--active .page-navigation__wrapper {
+  @media (max-width: $mobile-width-only) {
+    display: block;
+  }
+}
+
+.page-navigation .page-navigation__toggle::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 3px;
+  right: 1px;
+  width: 20px;
+  height: 2px;
+  background-color: $basic-black;
+  box-shadow: 0 6px 0 0 $basic-black, 0 12px 0 0 $basic-black;
+}
+
+.page-navigation--active .page-navigation__toggle::before {
+  content: url("../../img/menu-close.svg");
+  width: 21px;
+  height: 20px;
+  background: none;
+  box-shadow: none;
+}
+
+.page-navigation--nojs {
+  @media (max-width: $mobile-width-only) {
+    & .page-navigation__toggle {
+      display: none;
+    }
+
+    & .page-navigation__wrapper {
+      display: block;
+    }
+  }
+}
+
+.page-navigation__wrapper {
+  background-color: transparent;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $light-grey-border;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: min-content min-content;
+    border: none;
+  }
+}
+
+.page-navigation__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-navigation__list li {
+  @media (max-width: $mobile-width-only) {
+    border-top: 1px solid $light-grey-border;
+  }
+}
+
+.page-navigation__list a,
+.page-navigation__list .current-page {
+  display: flex;
+  align-items: center;
+  min-height: 78px;
+  text-decoration: none;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  line-height: 24px;
+  color: $basic-black;
+  padding-left: 76px;
+}
+
+.page-navigation__delivery-info {
+  display: none;
+  margin: 0;
+  padding-right: 50px;
+  font-size: 15px;
+  color: $basic-dark-grey;
+  background-color: transparent;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 20px;
+    display: flex;
+    align-self: stretch;
+    justify-self: stretch;
+    justify-content: flex-end;
+  }
+}

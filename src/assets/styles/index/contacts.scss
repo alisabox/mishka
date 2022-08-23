@@ -1,0 +1,186 @@
+.contacts {
+  @media (min-width: $desktop-width) {
+    margin-bottom: 105px;
+  }
+}
+
+.contacts__wrapper {
+  position: relative;
+
+  @media (min-width: $desktop-width) {
+    width: 1150px;
+    margin: 0 auto;
+  }
+}
+
+.contacts__title {
+  position: relative;
+  margin: 0;
+  margin-bottom: 28px;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 30px;
+
+  @include padding-left-right;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 49px;
+    font-size: 43px;
+    line-height: 50px;
+    padding: 0 130px 0 50px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 78px 600px 0 224px;
+    margin-bottom: 33px;
+    font-size: 53px;
+    line-height: 57px;
+    word-break: break-word;
+  }
+}
+
+.contacts__title::after {
+  @media (min-width: $tablet-width) {
+    content: url("../../img/flag.svg");
+    position: absolute;
+    top: -23px;
+    right: 53px;
+  }
+
+  @media (min-width: $desktop-width) {
+    position: absolute;
+    top: 59px;
+    left: 113px;
+  }
+}
+
+.contacts__text {
+  margin: 0;
+}
+
+.contacts__list {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  grid-template-rows: min-content 1fr;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 30px;
+  margin: 0;
+  margin-bottom: 62px;
+
+  @include padding-left-right;
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: max-content 1fr max-content 1fr;
+    row-gap: 10px;
+    margin-bottom: 39px;
+    font-size: 17px;
+
+    @include padding-tablet;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: grid;
+    padding-left: 224px;
+    margin-bottom: 85px;
+    max-width: 377px;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: min-content 1fr;
+  }
+}
+
+.contacts__list dt {
+  @media (min-width: $tablet-width) {
+    padding-right: 25px;
+  }
+}
+
+.contacts__list dd {
+  margin-bottom: 31px;
+
+  @media (min-width: $tablet-width) {
+    padding-right: 50px;
+    margin: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-right: 25px;
+    margin-bottom: 20px;
+  }
+}
+
+.contacts__list dd:last-child {
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+.contacts__list a {
+  color: $basic-dark-grey;
+  text-decoration-color: $link-input;
+  text-underline-offset: 5px;
+
+  @media (min-width: $tablet-width) {
+    text-underline-offset: 7px;
+  }
+
+  @media (min-width: $desktop-width) {
+    text-underline-offset: 12px;
+  }
+}
+
+.contacts__list a:hover,
+.contacts__list a:focus {
+  color: $dark-green-hover;
+  text-decoration-color: $dark-green-hover;
+}
+
+.contacts__list a:active {
+  color: $dark-green-hover;
+  text-decoration-color: rgba($dark-green-hover, 0.1);
+}
+
+.contacts__map-wrapper {
+  position: relative;
+  min-height: 454px;
+  margin-bottom: 42px;
+
+  @media (min-width: $tablet-width) {
+    min-height: 457px;
+    margin-bottom: 55px;
+  }
+
+  @media (min-width: $desktop-width) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 527px;
+    height: 457px;
+    margin-right: 50px;
+  }
+}
+
+.contacts__map {
+  position: absolute;
+  display: block;
+  width: 100%;
+  min-height: 454px;
+  background-image: url("../../img/map-tablet@1x.jpg");
+  background-position: top center;
+  background-size: fill;
+  background-repeat: no-repeat;
+
+  @media (min-resolution: 2dppx) {
+    background-image: url("../../img/map-tablet@2x.jpg");
+    background-size: auto 457px;
+  }
+
+  @media (min-width: $tablet-width) {
+    min-height: 457px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 527px;
+    height: 457px;
+  }
+}

@@ -1,0 +1,36 @@
+<section class="featured-item">
+  <h2 class="visually-hidden">Bestseller</h2>
+  <div class="featured-item__wrapper">
+    <h3 class="featured-item__name">Knitted baskets</h3>
+    <p class="featured-item__tag">Bestseller of the week</p>
+    <p class="featured-item__description">Environmentally friendly yarn, handmade. Available in six colors and three sizes.</p>
+    <div class="featured-item__details-table details-table">
+      <div class="details-table__row">
+        <div class="details-table__definition">Color:</div>
+        <div>"Tiffany"/grey</div>
+      </div>
+        <div class="details-table__row">
+          <div class="details-table__definition">Diameter:</div>
+          <div>25 cm</div>
+        </div>
+        <div class="details-table__row">
+          <div class="details-table__definition">Height:</div>
+          <div>15 cm</div>
+        </div>
+      </div>
+      <picture>
+        <!-- <source type="image/webp" media="(min-width: 1150px)" srcset="assets/img/triple-set-desktop@1x.webp 1x, assets/img/triple-set-desktop@2x.webp 2x">
+        <source type="image/webp" media="(min-width: 768px)" srcset="assets/img/triple-set-tablet@1x.webp 1x, assets/img/triple-set-tablet@2x.webp 2x">
+        <source type="image/webp" srcset="assets/img/triple-set-mobile@1x.webp 1x, assets/img/triple-set-mobile@2x.webp 2x"> -->
+        <source media="(min-width: 1150px)" srcset="assets/img/triple-set-desktop@1x.jpg 1x, assets/img/triple-set-desktop@2x.jpg 2x">
+        <source media="(min-width: 768px)" srcset="assets/img/triple-set-tablet@1x.jpg 1x, assets/img/triple-set-tablet@2x.jpg 2x">
+        <img class="featured-item__image" src="assets/img/triple-set-mobile@1x.jpg" srcset="assets/img/triple-set-mobile@2x.jpg 2x" width="260" height="315" alt="Set of three knitted baskets of different sizes">
+      </picture>
+    <p class="featured-item__price">Price: 990 yen</p>
+    <app-button
+      [textContent]="'Order'"
+      [path]="''"
+      [uniqueClass]="'button-order'"
+    ></app-button>
+  </div>
+</section>
