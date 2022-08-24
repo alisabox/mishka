@@ -539,33 +539,6 @@
 
 /* Button */
 
-.form__button-submit {
-  width: 100%;
-  min-height: 52px;
-  margin: 0;
-  padding: 1px 6px;
-  font-size: 17px;
-  line-height: 16px;
-
-  @media (min-width: $tablet-width) {
-    width: 230px;
-    margin-left: 50px;
-  }
-
-  @media (min-width: $desktop-width) {
-    margin-left: 225px;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: $basic-dark-grey;
-    color: $basic-white;
-  }
-
-  &:active {
-    color: rgba($basic-white, 0.3);
-  }
-}
 
 .form__wrapper {
   @media (min-width: $tablet-width) {

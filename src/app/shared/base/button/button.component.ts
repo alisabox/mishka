@@ -6,8 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
+
   @Input('textContent')
-  public textContent: string | undefined;
+  public textContent: string;
 
   @Input('path')
   public path: string | undefined;

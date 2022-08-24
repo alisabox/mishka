@@ -1,0 +1,16 @@
+<li class="catalog-item">
+  <a href="blank.html">
+    <app-picture
+      [fileName]="'photo-1'"
+      [altText]="'White and blue knitted hare'"
+    ></app-picture>
+  </a>
+  <div class="catalog-item__details">
+    <h3 class="catalog-item__name"><a href="blank.html">Bunny-bun</a></h3>
+    <p class="catalog-item__description">{{ 'T_PRODUCT.HEIGHT' | translate }} 30 cm, {{ 'T_PRODUCT.WEIGHT' | translate | lowercase }} 200 g</p>
+    <div class="catalog-item__bottom">
+      <p class="catalog-item__price">{{ '1 200' | price}}</p>
+      <app-cart-button aria-label="Add to cart"></app-cart-button>
+    </div>
+  </div>
+</li>

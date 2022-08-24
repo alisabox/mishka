@@ -1,0 +1,18 @@
+@import "../../../../assets/styles/global/variables.scss";
+
+.button-send-email {
+  display: block;
+  max-width: 260px;
+  margin: 0 auto 39px;
+
+  @media (min-width: $tablet-width) {
+    max-width: 230px;
+    margin-bottom: 0;
+    font-size: 17px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0;
+    margin-left: 224px;
+  }
+}

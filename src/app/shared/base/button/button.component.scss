@@ -1,0 +1,39 @@
+@import "../../../../assets/styles/global/variables.scss";
+
+.button {
+  min-height: 52px;
+  width: 100%;
+  border: 2px solid $basic-dark-grey;
+  padding: 5px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: $basic-dark-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: $basic-white;
+  cursor: pointer;
+
+  @media (min-width: $tablet-width) {
+    font-size: 17px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 292px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $basic-dark-grey;
+    color: $basic-white;
+  }
+
+  &:active {
+    color: rgba($basic-white, 0.3);
+  }
+}

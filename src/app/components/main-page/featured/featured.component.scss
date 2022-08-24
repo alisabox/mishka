@@ -1,0 +1,12 @@
+@import "../../../../assets/styles/global/variables.scss";
+
+.button-order {
+  @media (min-width: $tablet-width) {
+    margin-right: 376px;
+    font-size: 17px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 292px;
+  }
+}

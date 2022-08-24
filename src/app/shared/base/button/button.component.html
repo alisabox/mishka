@@ -1,9 +1,10 @@
 <a *ngIf="path; else button"
   class="button {{ uniqueClass }}" [routerLink]="[path]">
-  {{ textContent }}
+  {{ textContent | translate }}
 </a>
+
 <ng-template #button>
   <button class="button {{ uniqueClass }}">
-    {{ textContent }}
+    {{ textContent | translate }}
   </button>
 </ng-template>

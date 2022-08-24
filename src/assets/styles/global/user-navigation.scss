@@ -66,6 +66,7 @@
 }
 
 .user-navigation__search:active {
+
   & svg,
   & span {
     opacity: 0.3;
@@ -91,7 +92,6 @@
 .user-navigation__cart svg {
   position: absolute;
   left: 31px;
-  opacity: 0.2;
 }
 
 .user-navigation__cart:hover {
@@ -106,6 +106,7 @@
 }
 
 .user-navigation__cart:active {
+
   & svg,
   & span {
     opacity: 0.3;

@@ -1,0 +1,12 @@
+<section class="production">
+  <h2 class="production__title">{{ 'T_APP.CATALOG_PAGE.PRODUCTION_PROCCESS' | translate }}</h2>
+  <div class="production__video-wrapper">
+    <video class="production__video" preload="none"></video>
+    <button class="production__video-control" aria-label="Start video playback"></button>
+  </div>
+  <p class="production__description">At the request of our beloved followers, we made a detailed video for you about how our products appear.</p>
+  <app-button class="production__order"
+    [textContent]="'T_ACTION.MAKE_AN_ORDER'"
+    [path]="'/order'"
+  ></app-button>
+</section>

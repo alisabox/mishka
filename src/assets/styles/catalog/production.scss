@@ -168,16 +168,3 @@ video[poster] {
     margin-bottom: 52px;
   }
 }
-
-.production__order {
-  margin: 0 34px 33px;
-
-  @media (min-width: $tablet-width) {
-    margin: 0 42px 46px;
-    font-size: 17px;
-  }
-
-  @media (min-width: $desktop-width) {
-    margin: 0;
-  }
-}

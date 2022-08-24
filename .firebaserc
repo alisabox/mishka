@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mishka-6ed37": {
+      "hosting": {
+        "mishka": [
+          "mishka-6ed37"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mishka-6ed37"
+  }
+}
