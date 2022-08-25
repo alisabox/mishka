@@ -3,23 +3,38 @@ import {
   DocumentData,
   collection,
 } from '@firebase/firestore';
-
-import { collectionData, Firestore } from '@angular/fire/firestore';
+import {
+  collectionData,
+  Firestore,
+  query,
+  where
+} from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
+import { first } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
-  private pokemonCollection: CollectionReference<DocumentData>;
+  private _collection: CollectionReference<DocumentData>;
+  private _snapshot: CollectionReference<DocumentData>;
 
   constructor(private readonly firestore: Firestore) {
-    this.pokemonCollection = collection(this.firestore, 'catalog');
-    console.log(this.firestore);
+    this._collection = collection(this.firestore, 'catalog');
+    this._snapshot = this._collection.withConverter({
+      fromFirestore: snapshot => snapshot.data(),
+      toFirestore: (it: any) => it,
+    });
   }
 
-  getAll() {
-    return collectionData(this.pokemonCollection) as Observable<any>;
+  public getAll(): Observable<any> {
+    return collectionData(this._collection).pipe(first());
+  }
+
+  public getFeatured(): Observable<any> {
+    const appQuery = query(this._snapshot, where('isFeatured', '==', true));
+
+    return collectionData(appQuery).pipe(first());
   }
 }

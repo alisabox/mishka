@@ -1,31 +1,31 @@
-<section class="featured-item">
+<section class="featured-item" *ngIf="featured">
   <h2 class="visually-hidden">Bestseller</h2>
   <div class="featured-item__wrapper">
-    <h3 class="featured-item__name">Knitted baskets</h3>
+    <h3 class="featured-item__name">{{ featured.name }}</h3>
     <p class="featured-item__tag">Bestseller of the week</p>
-    <p class="featured-item__description">Environmentally friendly yarn, handmade. Available in six colors and three sizes.</p>
+    <p class="featured-item__description">{{ featured.description }}</p>
     <div class="featured-item__details-table details-table">
       <div class="details-table__row">
         <div class="details-table__definition">{{ 'T_PRODUCT.COLOR' | translate }}:</div>
-        <div>"Tiffany"/grey</div>
+        <div>{{ featured.color }}</div>
       </div>
         <div class="details-table__row">
           <div class="details-table__definition">{{ 'T_PRODUCT.DIAMETER' | translate }}:</div>
-          <div>25 cm</div>
+          <div>{{ featured.diameter }} cm</div>
         </div>
         <div class="details-table__row">
           <div class="details-table__definition">{{ 'T_PRODUCT.HEIGHT' | translate }}:</div>
-          <div>15 cm</div>
+          <div>{{ featured.height }} cm</div>
         </div>
       </div>
       <app-picture
         isFeatured
-        [fileName]="'triple-set'"
-        [altText]="'Set of three knitted baskets of different sizes'"
+        [fileName]="featured.img.name"
+        [altText]="featured.img.alt"
         [height]="315"
         [width]="260"
       ></app-picture>
-    <p class="featured-item__price">{{ 'Price: 990' | price}}</p>
+    <p class="featured-item__price">Price: {{ featured.price | price}}</p>
     <app-button class="button-order"
       [textContent]="'T_ACTION.ORDER'"
     ></app-button>

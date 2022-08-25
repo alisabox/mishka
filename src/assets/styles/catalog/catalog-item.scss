@@ -21,14 +21,7 @@
     flex-direction: column;
     min-height: 657px;
     max-width: 316px;
-    margin-right: 51px;
     margin-bottom: 56px;
-  }
-
-  &:nth-child(3n) {
-    @media (min-width: $desktop-width) {
-      margin-right: 0;
-    }
   }
 }
 

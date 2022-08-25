@@ -12,3 +12,15 @@
     margin: 0;
   }
 }
+
+.item {
+  @media (min-width: $desktop-width) {
+    margin-right: 51px;
+  }
+
+  &:nth-child(3n) {
+    @media (min-width: $desktop-width) {
+      margin-right: 0;
+    }
+  }
+}

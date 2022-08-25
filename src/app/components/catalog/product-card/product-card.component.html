@@ -1,15 +1,15 @@
 <li class="catalog-item">
-  <a href="blank.html">
+  <a [routerLink]="[product.id]">
     <app-picture
-      [fileName]="'photo-1'"
-      [altText]="'White and blue knitted hare'"
+      [fileName]="product.img.name"
+      [altText]="product.img.alt"
     ></app-picture>
   </a>
   <div class="catalog-item__details">
-    <h3 class="catalog-item__name"><a href="blank.html">Bunny-bun</a></h3>
-    <p class="catalog-item__description">{{ 'T_PRODUCT.HEIGHT' | translate }} 30 cm, {{ 'T_PRODUCT.WEIGHT' | translate | lowercase }} 200 g</p>
+    <h3 class="catalog-item__name"><a [routerLink]="['catalog', product.id]">{{ product.name }}</a></h3>
+    <p class="catalog-item__description">{{ 'T_PRODUCT.HEIGHT' | translate }} {{ product.height }} cm, {{ 'T_PRODUCT.WEIGHT' | translate | lowercase }} {{ product.weight }} g</p>
     <div class="catalog-item__bottom">
-      <p class="catalog-item__price">{{ '1 200' | price}}</p>
+      <p class="catalog-item__price">{{ product.price | price}}</p>
       <app-cart-button aria-label="Add to cart"></app-cart-button>
     </div>
   </div>

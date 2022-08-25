@@ -90,7 +90,7 @@
   display: block;
   width: 100%;
   min-height: 150px;
-  max-height: 455px;
+  max-height: 432px;
   background: url("../../img/video-mobile.jpg");
   background-size: cover;
 
@@ -99,7 +99,7 @@
   }
 
   @media (min-width: $tablet-width) {
-    height: 455px;
+    height: 432px;
     background: url("../../img/video-tablet.jpg");
     background-size: cover;
 
