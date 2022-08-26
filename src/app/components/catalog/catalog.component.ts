@@ -10,6 +10,7 @@ import { Product } from 'src/app/models/product.model';
 })
 export class CatalogComponent implements OnInit {
   private _products: Product[];
+  private _imageUrls: string[] = [];
 
   public get products(): Product[] {
     return this._products;
@@ -20,7 +21,14 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._service.getAll().subscribe((products) => this._products = products);
+    this._service.getAll().subscribe((products) => {
+      return this._products = products;
+    });
+
+
+    this._service.getAllImages().subscribe((imageUrls) => {
+      this._imageUrls = imageUrls;
+    });
   }
 
 }

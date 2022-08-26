@@ -7,6 +7,14 @@ export interface Product {
   img: {
     name: string,
     alt: string,
+    url: {
+      desktop: string,
+      'desktop@2': string,
+      mobile: string,
+      'mobile@2': string,
+      'tablet': string,
+      'tablet@2': string,
+    }
   },
   isFeatured: boolean,
   isNewArrival: boolean,
