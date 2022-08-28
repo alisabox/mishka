@@ -1,0 +1,10 @@
+.catalog-item__image {
+  background-image: url("../../../../assets/img/img_filler.svg");
+  background-position: center;
+}
+
+img[alt]:after {
+  display: block;
+  color: transparent;
+  content: attr(alt);
+}

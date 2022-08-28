@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -111,7 +111,9 @@ export function setupAppConfigServiceFactory(
       ],
       multi: true
     },
-    ScreenTrackingService, UserTrackingService
+    ScreenTrackingService,
+    UserTrackingService,
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'JPY' }
   ],
   bootstrap: [AppComponent]
 })

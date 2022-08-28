@@ -1,7 +1,7 @@
 <li class="catalog-item">
-  <a [routerLink]="[product.id]">
+  <a class="catalog-item__link" [routerLink]="[product.id]">
     <app-picture
-      [fileName]="product.img.name"
+      [imageUrls]="product.img.url"
       [altText]="product.img.alt"
     ></app-picture>
   </a>
@@ -9,7 +9,7 @@
     <h3 class="catalog-item__name"><a [routerLink]="['catalog', product.id]">{{ product.name }}</a></h3>
     <p class="catalog-item__description">{{ 'T_PRODUCT.HEIGHT' | translate }} {{ product.height }} cm, {{ 'T_PRODUCT.WEIGHT' | translate | lowercase }} {{ product.weight }} g</p>
     <div class="catalog-item__bottom">
-      <p class="catalog-item__price">{{ product.price | price}}</p>
+      <p class="catalog-item__price">{{ product.price | currency }}</p>
       <app-cart-button aria-label="Add to cart"></app-cart-button>
     </div>
   </div>

@@ -7,14 +7,7 @@ export interface Product {
   img: {
     name: string,
     alt: string,
-    url: {
-      desktop: string,
-      'desktop@2': string,
-      mobile: string,
-      'mobile@2': string,
-      'tablet': string,
-      'tablet@2': string,
-    }
+    url: ImageUrlTypes,
   },
   isFeatured: boolean,
   isNewArrival: boolean,
@@ -22,4 +15,17 @@ export interface Product {
   price: number,
   weight: number,
   diameter: number,
+}
+
+export interface ImageUrlTypes extends ImageUrl {
+  desktop: string,
+  desktopx2: string,
+  mobile: string,
+  mobilex2: string,
+  tablet: string,
+  tabletx2: string,
+}
+
+export interface ImageUrl {
+  [key: string]: string,
 }

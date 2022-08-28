@@ -10,7 +10,7 @@ import {
   where
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { concatMap, first, from, map, mergeAll, mergeMap, toArray } from 'rxjs';
+import { concatMap, first, from, map, mergeAll, mergeMap, toArray, tap, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { ref, getDownloadURL, Storage, listAll } from '@angular/fire/storage';
 import { Product } from 'src/app/models/product.model';
@@ -34,28 +34,25 @@ export class FirestoreService {
   }
 
   public getAll(): Observable<Product[]> {
+    return collectionData(this._collection).pipe(
+      first(),
+      map(products => products.map(product => {
+        const urls = product.img.url;
+        const keys = Object.keys(urls);
+        if (keys.some(key => !key)) {
+          return product;
+        } else {
+          keys.map(key => {
+            from(getDownloadURL(ref(this._storage, urls[key])))
+              .pipe(first())
+              .subscribe((res) => urls[key] = res);
+          })
 
-    // collectionData(this._collection).pipe(
-    //   first(),
-    //   map(products => {
-    //     products.map(product => {
-
-    //     })
-    //   })
-    // ).subscribe((products) => {
-    //   const productsWithUrls = products.map((product) => {
-
-    //   })
-    //   const refs = res.map(x => x.img.url);
-    //   refs.map(res => {
-    //     if (res) {
-    //       console.log(ref(this._storage, res.desktop));
-    //       const listRef = ref(this._storage, res.desktop);
-    //       from(getDownloadURL(listRef)).subscribe(url => console.log(url));
-    //     }
-    //   });
-    // })
-    return collectionData(this._collection).pipe(first());
+          return product;
+        }
+      })
+      )
+    );
   }
 
   public getAllImages(): Observable<string[]> {
@@ -63,8 +60,8 @@ export class FirestoreService {
 
     return from(listAll(listRef))
       .pipe(
-        mergeMap(res => res.items.map((itemRef) => itemRef.fullPath)),
-        mergeMap(res => from(getDownloadURL(ref(this._storage, res)))),
+        mergeMap(refsList => refsList.items.map((itemRef) => itemRef.fullPath)),
+        mergeMap(fullPath => from(getDownloadURL(ref(this._storage, fullPath)))),
         toArray()
       );
   }

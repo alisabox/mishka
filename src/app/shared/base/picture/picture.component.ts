@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ImageUrlTypes } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-picture',
@@ -9,6 +10,9 @@ export class PictureComponent implements OnInit {
   private _height: string = '195';
   private _width: string = '260';
   private _isFeatured: boolean;
+
+  @Input('imageUrls')
+  public imageUrls: ImageUrlTypes;
 
   @Input('fileName')
   public fileName: string;

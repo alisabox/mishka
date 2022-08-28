@@ -22,13 +22,14 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit(): void {
     this._service.getAll().subscribe((products) => {
+      console.log(products);
       return this._products = products;
     });
 
 
-    this._service.getAllImages().subscribe((imageUrls) => {
-      this._imageUrls = imageUrls;
-    });
+    // this._service.getAllImages().subscribe((imageUrls) => {
+    //   this._imageUrls = imageUrls;
+    // });
   }
 
 }
