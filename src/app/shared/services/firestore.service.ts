@@ -10,7 +10,7 @@ import {
   where
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { concatMap, first, from, map, mergeAll, mergeMap, toArray, tap, switchMap } from 'rxjs';
+import { first, from, mergeMap, toArray, catchError, EMPTY, of, switchMap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { ref, getDownloadURL, Storage, listAll } from '@angular/fire/storage';
 import { Product } from 'src/app/models/product.model';
@@ -34,25 +34,33 @@ export class FirestoreService {
   }
 
   public getAll(): Observable<Product[]> {
-    return collectionData(this._collection).pipe(
-      first(),
-      map(products => products.map(product => {
-        const urls = product.img.url;
-        const keys = Object.keys(urls);
-        if (keys.some(key => !key)) {
-          return product;
-        } else {
-          keys.map(key => {
-            from(getDownloadURL(ref(this._storage, urls[key])))
-              .pipe(first())
-              .subscribe((res) => urls[key] = res);
-          })
-
-          return product;
-        }
-      })
+    return collectionData(this._collection)
+      .pipe(
+        first(),
+        switchMap(products => products.map(product => {
+          const urls = product.img.url;
+          const keys = Object.keys(urls);
+          if (keys.some(key => !key)) {
+            return of(product);
+          } else {
+            return from(keys)
+              .pipe(
+                mergeMap(key => {
+                  return from(getDownloadURL(ref(this._storage, urls[key]))).
+                    pipe(mergeMap(url => urls[key] = url))
+                }),
+                toArray(),
+                mergeMap(() => of(product))
+              )
+          }
+        })),
+        mergeMap(product => product),
+        toArray(),
+        catchError((err) => {
+          console.log(err);
+          return EMPTY;
+        })
       )
-    );
   }
 
   public getAllImages(): Observable<string[]> {

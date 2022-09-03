@@ -1,4 +1,4 @@
-<picture *ngIf="isFeatured">
+<picture *ngIf="isFeatured && !imageUrls">
   <source *ngIf="includeWebp" type="image/webp" media="(min-width: 1150px)" srcset="assets/img/{{fileName}}-desktop@1x.webp 1x, assets/img/{{fileName}}-desktop@2x.webp 2x">
   <source *ngIf="includeWebp" type="image/webp" media="(min-width: 768px)" srcset="assets/img/{{fileName}}-tablet@1x.webp 1x, assets/img/{{fileName}}-tablet@2x.webp 2x">
   <source *ngIf="includeWebp" type="image/webp" srcset="assets/img/{{fileName}}-mobile@1x.webp 1x, assets/img/{{fileName}}-mobile@2x.webp 2x">

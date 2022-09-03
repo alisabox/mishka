@@ -10,7 +10,11 @@ import { Product } from 'src/app/models/product.model';
 })
 export class CatalogComponent implements OnInit {
   private _products: Product[];
-  private _imageUrls: string[] = [];
+  private _isLoaded: boolean = false;
+
+  public get isLoaded(): boolean {
+    return this._isLoaded;
+  }
 
   public get products(): Product[] {
     return this._products;
@@ -22,14 +26,9 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit(): void {
     this._service.getAll().subscribe((products) => {
-      console.log(products);
-      return this._products = products;
+      this._products = products;
+      this._isLoaded = true;
     });
-
-
-    // this._service.getAllImages().subscribe((imageUrls) => {
-    //   this._imageUrls = imageUrls;
-    // });
   }
 
 }
