@@ -7,8 +7,11 @@
         <img src="assets/img/logo-mobile.svg" width="86" height="35" alt="Online shop Mishka">
       </picture>
     </a>
-    <nav class="page-navigation page-navigation--nojs">
-      <button class="page-navigation__toggle">
+    <nav #navigationMenu class="page-navigation">
+      <button
+        class="page-navigation__toggle"
+        (click)="toggleMenu()"
+      >
         <span class="visually-hidden">Open menu</span>
       </button>
       <div class="page-navigation__wrapper">

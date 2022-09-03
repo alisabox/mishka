@@ -1,5 +1,4 @@
 .modal {
-  display: none;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -102,7 +101,7 @@
   }
 }
 
-.modal__input:checked + label {
+.modal__input:checked+label {
   border: 2px solid $light-green;
 }
 

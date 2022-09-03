@@ -28,6 +28,10 @@
     <p class="featured-item__price">Price: {{ featured.price | price}}</p>
     <app-button class="button-order"
       [textContent]="'T_ACTION.ORDER'"
+      (click)="showModal()"
     ></app-button>
   </div>
 </section>
+<app-modal 
+  *ngIf="activeModal"
+  (closeModal)="closeModal()"></app-modal>

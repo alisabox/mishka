@@ -9,7 +9,12 @@ import { TranslateService } from 'src/app/shared/services/translate.service';
   styleUrls: ['./featured.component.scss']
 })
 export class FeaturedComponent implements OnInit {
+  private _activeModal: boolean = false;
   private _featured: Product;
+
+  public get activeModal(): boolean {
+    return this._activeModal;
+  }
 
   public get featured(): Product {
     return this._featured;
@@ -24,6 +29,14 @@ export class FeaturedComponent implements OnInit {
 
   ngOnInit(): void {
     this._service.getFeatured().subscribe((featured) => this._featured = featured[0]);
+  }
+
+  public showModal(): void {
+    this._activeModal = true;
+  }
+
+  public closeModal(): void {
+    this._activeModal = false;
   }
 
 }
