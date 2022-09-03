@@ -1,0 +1,134 @@
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba($basic-white, 0.9);
+}
+
+.modal__content {
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  box-sizing: border-box;
+  height: fit-content;
+  padding: 30px;
+  box-shadow: 0 5px 10px $modal-shadow;
+  color: $basic-dark-grey;
+  background-color: $basic-white;
+
+  @media (min-width: $tablet-width) {
+    min-width: 566px;
+  }
+}
+
+.modal--show {
+  display: block;
+}
+
+.modal__title {
+  padding: 0;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  word-break: break-word;
+  margin: 0 40px 14px 44px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 30px;
+    line-height: 57px;
+  }
+}
+
+.modal__form {
+  margin-bottom: 16px;
+}
+
+.modal__size {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 31px;
+}
+
+.modal__legend {
+  font-size: 15px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 auto 21px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 17px;
+  }
+}
+
+.modal__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal__item {
+  margin-right: 7px;
+}
+
+.modal__item:last-child {
+  margin-right: 0;
+}
+
+.modal__item label {
+  border: 2px solid rgba($basic-dark-grey, 0.1);
+  width: 78px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid rgba($basic-dark-grey, 0.3);
+  }
+}
+
+.modal__input:checked+label {
+  border: 2px solid $light-green;
+}
+
+.modal__button-submit {
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  line-height: 16px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 350px;
+  min-width: 260px;
+  min-height: 52px;
+  margin: 0 auto;
+  border: none;
+  background-color: $light-green;
+  color: $basic-white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.modal__button-submit:hover {
+  background-color: $dark-green;
+  color: $basic-white;
+}
+
+.modal__button-submit:active {
+  color: rgba($basic-white, 0.3);
+}

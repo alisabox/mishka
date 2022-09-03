@@ -1,0 +1,139 @@
+.categories {
+  position: relative;
+  margin-bottom: 31px;
+
+  @media (min-width: $tablet-width) {
+    top: -120px;
+    margin-bottom: -68px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: -47px;
+  }
+}
+
+.categories__wrapper {
+  @media (min-width: $desktop-width) {
+    width: 1150px;
+    margin: 0 auto;
+  }
+}
+
+.categories__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: $tablet-width) {
+    @include padding-tablet;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.categories::after {
+  @media (min-width: $tablet-width) {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    height: 24px;
+    width: 100%;
+    background-image: url("../../img/zigzag-fill-desktop.svg");
+    background-repeat: repeat-x;
+  }
+
+  @media (min-width: $desktop-width) {
+    bottom: -7px;
+    background-size: 1250px;
+    // background-repeat: no-repeat;
+    background-position: top center;
+  }
+}
+
+.categories__item {
+  position: relative;
+}
+
+.categories__item:nth-child(odd) {
+  background-color: $light-green;
+}
+
+.categories__item--interior::after {
+  content: url("../../img/interior.svg");
+  position: absolute;
+  top: 23px;
+  right: 36px;
+  opacity: 0.5;
+
+  @media (min-width: $tablet-width) {
+    top: 30px;
+  }
+}
+
+.categories__item:nth-child(even) {
+  background-color: $dark-green;
+}
+
+.categories__item--toys::after {
+  content: url("../../img/toy.svg");
+  position: absolute;
+  top: 21px;
+  right: 27px;
+  opacity: 0.5;
+
+  @media (min-width: $tablet-width) {
+    top: 31px;
+    right: 33px;
+  }
+}
+
+.categories__item:nth-child(odd):hover,
+.categories__item:nth-child(odd):active,
+.categories__item:nth-child(odd):focus {
+  background-color: $light-green-hover;
+}
+
+.categories__item:nth-child(even):hover,
+.categories__item:nth-child(even):active,
+.categories__item:nth-child(even):focus {
+  background-color: $dark-green-hover;
+}
+
+.categories__item:hover::after {
+  opacity: 0.7;
+}
+
+.categories__item:active::after {
+  opacity: 0.3;
+}
+
+.categories__link {
+  display: flex;
+  min-height: 48px;
+  padding: 24px 0 31px;
+  text-decoration: none;
+
+  @media (min-width: $tablet-width) {
+    min-height: 60px;
+    padding: 25px 0 34px;
+  }
+}
+
+.categories__text {
+  padding-left: 30px;
+  margin: auto 0;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 24px;
+  color: $basic-white;
+  width: 130px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 36px;
+  }
+}

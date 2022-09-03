@@ -1,0 +1,30 @@
+.button-review {
+  min-width: 130px;
+  min-height: 50px;
+  border: 1px solid $light-grey-border;
+  background-color: $basic-white;
+  cursor: pointer;
+
+  @media (min-width: $tablet-width) {
+    min-width: 88px;
+    font-size: 17px;
+    border: none;
+  }
+}
+
+.button-review:hover,
+.button-review:focus {
+  opacity: 0.6;
+}
+
+.button-review:active {
+  opacity: 0.3;
+}
+
+.button-review--previous::before {
+  content: url("../../img/huge-arrow-left.svg");
+}
+
+.button-review--next::before {
+  content: url("../../img/huge-arrow-right.svg");
+}
