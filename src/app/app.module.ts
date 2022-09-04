@@ -29,7 +29,6 @@ import { UnitsPipe } from './shared/pipes/units.pipe';
 import { ProductionComponent } from './components/catalog/production/production.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics, getAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
@@ -83,7 +82,6 @@ export function setupAppConfigServiceFactory(
     AppRoutingModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
@@ -111,8 +109,6 @@ export function setupAppConfigServiceFactory(
       ],
       multi: true
     },
-    ScreenTrackingService,
-    UserTrackingService,
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'JPY' }
   ],
   bootstrap: [AppComponent]
