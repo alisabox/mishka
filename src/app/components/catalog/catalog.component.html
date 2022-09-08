@@ -1,13 +1,13 @@
-
 <main class="page-catalog">
   <div class="page-catalog__header">
     <h1 class="page-catalog__title">{{ 'T_APP.CATALOG_PAGE.TITLE' | translate }}</h1>
   </div>
-  <section class="catalog" *ngIf="isLoaded">
+  <section class="catalog">
+    <app-throbber *ngIf="!isLoaded"></app-throbber>
     <h2 class="visually-hidden">{{ 'T_APP.CATALOG_PAGE.LIST' | translate }}</h2>
-    <ul class="catalog__list">
+    <ul *ngIf="isLoaded" class="catalog__list">
       <app-product-card *ngFor="let product of products" class="item" [product]="product"></app-product-card>
     </ul>
   </section>
-  <app-production></app-production>
+  <app-production *ngIf="isLoaded"></app-production>
 </main> 

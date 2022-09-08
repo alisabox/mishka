@@ -34,33 +34,7 @@ export class FirestoreService {
   }
 
   public getAll(): Observable<Product[]> {
-    return collectionData(this._collection)
-      .pipe(
-        first(),
-        switchMap(products => products.map(product => {
-          const urls = product.img.url;
-          const keys = Object.keys(urls);
-          if (keys.some(key => !key)) {
-            return of(product);
-          } else {
-            return from(keys)
-              .pipe(
-                mergeMap(key => {
-                  return from(getDownloadURL(ref(this._storage, urls[key]))).
-                    pipe(mergeMap(url => urls[key] = url))
-                }),
-                toArray(),
-                mergeMap(() => of(product))
-              )
-          }
-        })),
-        mergeMap(product => product),
-        toArray(),
-        catchError((err) => {
-          console.log(err);
-          return EMPTY;
-        })
-      )
+    return collectionData(this._collection).pipe(catchError(() => EMPTY));
   }
 
   public getAllImages(): Observable<string[]> {
