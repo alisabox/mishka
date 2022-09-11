@@ -30,5 +30,6 @@
   "T_APP.ACCESS": "Access",
   "T_APP.ACCESS.EMAIL": "e-mail:",
   "T_APP.ACCESS.ADDRESS": "address:",
-  "T_APP.COPYRIGHT": "Special thanks to"
+  "T_APP.COPYRIGHT": "Special thanks to",
+  "T_APP.NOT_FOUND": "Page not found"
 }
