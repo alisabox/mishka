@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-production',
-  templateUrl: './production.component.html',
-  styleUrls: ['./production.component.scss']
+  templateUrl: './production.component.html'
 })
 export class ProductionComponent implements OnInit {
 
