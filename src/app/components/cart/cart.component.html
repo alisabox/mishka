@@ -1,5 +1,89 @@
 <main class="page-inner">
   <div class="page-inner__header">
-    <h1 class="page-inner__title">Shopping Cart</h1>
+    <h1 class="page-inner__title">{{ 'T_APP.CART.TITLE' | translate }}</h1>
   </div>
+  <section class="catalog">
+    <h2 class="visually-hidden">{{ 'T_APP.CART.LIST' | translate }}</h2>
+    <form>
+      <fieldset>
+        <table>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Size</th>
+              <th>Quantity</th>
+              <th>Remove</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="description-wrapper">
+                  <h3>Product name</h3>
+                  <img src="" height="50" width="50">
+                </div>
+              </td>
+              <td>
+                <span class="bordered-label">M</span>
+              </td>
+              <td>
+                <div class="quantity-wrapper">
+                  <button class="cart-button quantity-button quantity-button__minus">-</button>
+                  <input class="cart-input quantity-input " type="number" value="1" min="1" max="99">
+                  <button class="cart-button quantity-button quantity-button__plus">+</button>
+                </div>
+              </td>
+              <td>
+                <span class="bordered-label">x</span>
+              </td>
+              <td>
+                <span class="label">{{ 400 | currency }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="description-wrapper">
+                  <h3>Product name</h3>
+                  <img src="" height="50" width="50">
+                </div>
+              </td>
+              <td>
+                <span class="bordered-label">M</span>
+              </td>
+              <td>
+                <div class="quantity-wrapper">
+                  <button class="cart-button quantity-button quantity-button__minus">-</button>
+                  <input class="cart-input quantity-input " type="number" value="1" min="1" max="99">
+                  <button class="cart-button quantity-button quantity-button__plus">+</button>
+                </div>
+              </td>
+              <td>
+                <span class="bordered-label">x</span>
+              </td>
+              <td>
+                <span class="label">{{ 400 | currency }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+    </form>
+    <div class="cart-footer">
+      <form>
+        <p>Enter your promo code if you have one.</p>
+        <div class="promo-code-wrapper">
+          <input class="cart-input promo-code-input" type="text" placeholder="Please enter your promo code"/>
+          <button class="cart-button" type="submit">Apply Discount</button>
+        </div>
+      </form>
+      <div class="cart-total">
+        <p class="cart-total-sum">
+          <b>TOTAL</b>
+          <b>{{ 800 | currency }}</b>
+        </p>
+        <button class="cart-button submit-button">Checkout</button>
+      </div>
+    </div>
+  </section>
 </main>
