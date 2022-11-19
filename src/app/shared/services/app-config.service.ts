@@ -12,16 +12,16 @@ export class AppConfigService {
 
   load(defaults?: AppConfig): Promise<AppConfig> {
     return new Promise<AppConfig>(resolve => {
-      this.http.get('app.config.json').subscribe(
-        response => {
+      this.http.get('app.config.json').subscribe({
+        next: (response) => {
           this.data = Object.assign({}, defaults || {}, response || {});
           resolve(this.data);
         },
-        () => {
+        error: () => {
           this.data = Object.assign({}, defaults || {});
           resolve(this.data);
         }
-      );
+      });
     });
   }
 }
