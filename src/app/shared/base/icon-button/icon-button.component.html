@@ -1,0 +1,7 @@
+<a [routerLink]="[iconKey]">
+  <span [ngSwitch]="iconKey">
+    <fa-icon [icon]="faBasketShopping" *ngSwitchCase="'cart'"></fa-icon>
+    <fa-icon [icon]="faRightToBracket" *ngSwitchCase="'login'"></fa-icon>
+  </span>
+  <span *ngIf="!!textContent">{{ textContent | translate }}</span>
+</a>

@@ -22,7 +22,7 @@ import { TranslateService } from './shared/services/translate.service';
 import { AppConfigService } from './shared/services/app-config.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PricePipe } from './shared/pipes/price.pipe';
-import { CartButtonComponent } from './shared/base/cart-button/cart-button.component';
+import { IconButtonComponent } from './shared/base/icon-button/icon-button.component';
 import { ProductCardComponent } from './components/catalog/product-card/product-card.component';
 import { PictureComponent } from './shared/base/picture/picture.component';
 import { UnitsPipe } from './shared/pipes/units.pipe';
@@ -38,6 +38,7 @@ import { providePerformance, getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-config';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { ThrobberComponent } from './shared/components/throbber/throbber.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export function setupTranslateServiceFactory(service: TranslateService) {
   return () => service.use('en');
@@ -65,7 +66,7 @@ export function setupAppConfigServiceFactory(service: AppConfigService) {
     ReviewsComponent,
     ContactsComponent,
     ButtonComponent,
-    CartButtonComponent,
+    IconButtonComponent,
     ProductCardComponent,
     PictureComponent,
 
@@ -89,6 +90,7 @@ export function setupAppConfigServiceFactory(service: AppConfigService) {
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
+    FontAwesomeModule,
   ],
   providers: [
     TranslateService,

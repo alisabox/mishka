@@ -8,7 +8,7 @@
     margin-right: 50px;
     margin-left: 250px;
     display: grid;
-    grid-template-columns: 82px 1fr;
+    grid-template-columns: 1fr 1fr;
     overflow: hidden;
     align-items: center;
   }
@@ -16,7 +16,6 @@
   @media (min-width: $desktop-width) {
     max-height: none;
     position: relative;
-    grid-template-columns: 82px 270px;
     margin: 0;
     padding-right: 50px;
   }

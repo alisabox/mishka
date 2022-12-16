@@ -1,0 +1,21 @@
+@import "../../../../assets/styles/global/variables.scss";
+
+:host {
+  padding: 0 10px;
+}
+
+fa-icon {
+  margin-bottom: 15px;
+  display: block;
+  color: $basic-black;
+}
+
+a {
+  &:hover fa-icon {
+    color: $light-green;
+  }
+
+  &:active fa-icon {
+    color: rgba($light-green, 0.3);
+  }
+}

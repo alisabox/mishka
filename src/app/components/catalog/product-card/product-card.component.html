@@ -10,7 +10,7 @@
     <p class="catalog-item__description">{{ 'T_PRODUCT.HEIGHT' | translate }} {{ product.height }} cm, {{ 'T_PRODUCT.WEIGHT' | translate | lowercase }} {{ product.weight }} g</p>
     <div class="catalog-item__bottom">
       <p class="catalog-item__price">{{ product.price | currency }}</p>
-      <app-cart-button aria-label="Add to cart"></app-cart-button>
+      <app-icon-button aria-label="Add to cart" [iconKey]="'cart'"></app-icon-button>
     </div>
   </div>
 </li>

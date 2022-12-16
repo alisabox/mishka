@@ -24,17 +24,12 @@
           </li>
         </ul>
         <ul class="page-navigation__list user-navigation">
-            <li class="user-navigation__search">
-              <a [routerLink]="['']" aria-label="Search">
-                <svg width="18" height="18">
-                  <path d="M17.7 16.06l-3.48-3.48a7.63 7.63 0 001.53-4.7c0-4.4-3.48-7.88-7.88-7.88A7.81 7.81 0 000 7.88c0 4.4 3.48 7.87 7.88 7.87 1.73 0 3.37-.61 4.7-1.53l3.48 3.47c.2.2.4.31.82.31.6 0 1.12-.51 1.12-1.13 0-.2-.1-.5-.3-.81zM2.24 7.88a5.67 5.67 0 015.63-5.63 5.67 5.67 0 015.62 5.63 5.67 5.67 0 01-5.63 5.62 5.67 5.67 0 01-5.62-5.63z"/>
-                </svg>
-                <span>Search</span>
-              </a>
-            </li>
-            <li class="user-navigation__cart">
-              <app-cart-button [textContent]="'T_APP.CART.EMPTY'"></app-cart-button>
-            </li>
+          <li class="user-navigation__cart">
+            <app-icon-button [textContent]="'T_APP.CART.EMPTY'" [iconKey]="'cart'"></app-icon-button>
+          </li>
+          <li class="user-navigation__cart">
+            <app-icon-button [textContent]="'T_APP.LOGIN'" [iconKey]="'login'"></app-icon-button>
+          </li>
         </ul>
         <ul class="page-navigation__list aside-navigation">
           <li class="aside-navigation__item">

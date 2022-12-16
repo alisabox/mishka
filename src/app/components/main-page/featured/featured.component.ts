@@ -4,7 +4,6 @@ import {
 } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
-import { TranslateService } from 'src/app/shared/services/translate.service';
 
 @Component({
   selector: 'app-featured',
@@ -24,7 +23,6 @@ export class FeaturedComponent implements OnInit {
   }
 
   constructor(
-    translateService: TranslateService,
     private _service: FirestoreService,
   ) {
 
