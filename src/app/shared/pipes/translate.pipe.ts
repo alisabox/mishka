@@ -3,13 +3,13 @@ import { TranslateService } from './../services/translate.service';
 
 @Pipe({
   name: 'translate',
-  pure: false
+  pure: false,
 })
 export class TranslatePipe implements PipeTransform {
 
   constructor(private translate: TranslateService) { }
 
-  transform(key: any): string {
+  transform(key: string): string {
     return this.translate.data[key] || key;
   }
 }

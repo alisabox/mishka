@@ -7,16 +7,28 @@ import {
   collectionData,
   Firestore,
   query,
-  where
+  where,
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { first, from, mergeMap, toArray, catchError, EMPTY, of, switchMap } from 'rxjs';
+import {
+  first,
+  from,
+  mergeMap,
+  toArray,
+  catchError,
+  EMPTY,
+} from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
-import { ref, getDownloadURL, Storage, listAll } from '@angular/fire/storage';
+import {
+  ref,
+  getDownloadURL,
+  Storage,
+  listAll,
+} from '@angular/fire/storage';
 import { Product } from 'src/app/models/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FirestoreService {
   private _collection: CollectionReference<Product>;
@@ -29,7 +41,7 @@ export class FirestoreService {
     this._collection = collection(this._firestore, 'catalog') as CollectionReference<Product>;
     this._snapshot = this._collection.withConverter({
       fromFirestore: snapshot => snapshot.data(),
-      toFirestore: (it: any) => it,
+      toFirestore: (it) => it,
     });
   }
 
@@ -44,13 +56,13 @@ export class FirestoreService {
       .pipe(
         mergeMap(refsList => refsList.items.map((itemRef) => itemRef.fullPath)),
         mergeMap(fullPath => from(getDownloadURL(ref(this._storage, fullPath)))),
-        toArray()
+        toArray(),
       );
   }
 
-  public getFeatured(): Observable<any> {
+  public getFeatured(): Observable<Product[]> {
     const appQuery = query(this._snapshot, where('isFeatured', '==', true));
 
-    return collectionData(appQuery).pipe(first());
+    return collectionData(appQuery).pipe(first()) as Observable<Product[]>;
   }
 }

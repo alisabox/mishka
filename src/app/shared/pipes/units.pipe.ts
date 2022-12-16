@@ -6,7 +6,7 @@ export type UnitType = {
 }
 
 @Pipe({
-  name: 'units'
+  name: 'units',
 })
 export class UnitsPipe implements PipeTransform {
 

@@ -39,14 +39,11 @@ import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-confi
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { ThrobberComponent } from './shared/components/throbber/throbber.component';
 
-export function setupTranslateServiceFactory(
-  service: TranslateService): Function {
+export function setupTranslateServiceFactory(service: TranslateService) {
   return () => service.use('en');
 }
 
-export function setupAppConfigServiceFactory(
-  service: AppConfigService
-): Function {
+export function setupAppConfigServiceFactory(service: AppConfigService) {
   return () => service.load();
 }
 
@@ -99,20 +96,20 @@ export function setupAppConfigServiceFactory(
       provide: APP_INITIALIZER,
       useFactory: setupTranslateServiceFactory,
       deps: [
-        TranslateService
+        TranslateService,
       ],
-      multi: true
+      multi: true,
     },
     {
       provide: APP_INITIALIZER,
       useFactory: setupAppConfigServiceFactory,
       deps: [
-        AppConfigService
+        AppConfigService,
       ],
-      multi: true
+      multi: true,
     },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'JPY' }
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'JPY' },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,14 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-production',
-  templateUrl: './production.component.html'
+  templateUrl: './production.component.html',
 })
-export class ProductionComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class ProductionComponent {
 
 }

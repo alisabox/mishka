@@ -4,7 +4,7 @@ import { ImageUrlTypes } from 'src/app/models/product.model';
 @Component({
   selector: 'app-picture',
   templateUrl: './picture.component.html',
-  styleUrls: ['./picture.component.scss']
+  styleUrls: ['./picture.component.scss'],
 })
 export class PictureComponent {
   private _height: string = '195';
@@ -26,30 +26,27 @@ export class PictureComponent {
   @Input('isFeatured')
   public set isFeatured(value: boolean | '') {
     this._isFeatured = value || true;
-  };
+  }
 
   public get isFeatured(): boolean {
     return this._isFeatured;
-  };
+  }
 
   @Input('height')
   public set height(value: string | number) {
     this._height = value.toString();
-  };
+  }
 
   public get height(): string {
     return this._height;
-  };
+  }
 
   @Input('width')
   public set width(value: string | number) {
     this._width = value.toString();
-  };
+  }
 
   public get width(): string {
     return this._width;
-  };
-
-  constructor() { }
-
+  }
 }

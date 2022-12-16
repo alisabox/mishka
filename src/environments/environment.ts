@@ -12,7 +12,7 @@ export const environment = {
     authDomain: 'mishka-6ed37.firebaseapp.com',
     messagingSenderId: '820083813670',
   },
-  production: false
+  production: false,
 };
 
 /*

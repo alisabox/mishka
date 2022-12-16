@@ -1,14 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
-  templateUrl: './categories.component.html'
+  templateUrl: './categories.component.html',
 })
-export class CategoriesComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class CategoriesComponent {
 }

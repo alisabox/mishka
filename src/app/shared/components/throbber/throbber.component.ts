@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-throbber',
@@ -10,13 +10,7 @@ import { Component, OnInit } from '@angular/core';
       <div></div>
     </div>
   `,
-  styleUrls: ['./throbber.component.scss']
+  styleUrls: ['./throbber.component.scss'],
 })
-export class ThrobberComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class ThrobberComponent {
 }

@@ -3,7 +3,7 @@ import { NavigationEnd, Router, Event } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent {
   @ViewChild('navigationMenu')
@@ -16,7 +16,7 @@ export class HeaderComponent {
           this.toggleMenu();
         }
       }
-    })
+    });
   }
 
   public toggleMenu(): void {

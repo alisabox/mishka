@@ -1,20 +1,21 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html'
+  templateUrl: './modal.component.html',
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
   @ViewChild('modal')
   private _modal: ElementRef<HTMLElement>;
 
   @Output()
   public closeModal = new EventEmitter();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   public check(event: Event): void {
     if (event.target === this._modal.nativeElement) {
