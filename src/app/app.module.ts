@@ -1,5 +1,6 @@
 import { APP_INITIALIZER, DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -83,6 +84,7 @@ export function setupAppConfigServiceFactory(service: AppConfigService) {
   imports: [
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FontAwesomeModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
