@@ -40,6 +40,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { ThrobberComponent } from './shared/components/throbber/throbber.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function setupTranslateServiceFactory(service: TranslateService) {
   return () => service.use('en');
@@ -80,8 +81,9 @@ export function setupAppConfigServiceFactory(service: AppConfigService) {
     LoginComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    FontAwesomeModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -92,7 +94,7 @@ export function setupAppConfigServiceFactory(service: AppConfigService) {
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
-    FontAwesomeModule,
+    ReactiveFormsModule,
   ],
   providers: [
     TranslateService,

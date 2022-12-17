@@ -4,7 +4,10 @@
 </a>
 
 <ng-template #button>
-  <button class="button {{ btnStyle }}">
+  <button
+    class="button {{ btnStyle }}"
+    [disabled]="btnDisabled"
+  >
     {{ textContent | translate }}
   </button>
 </ng-template>

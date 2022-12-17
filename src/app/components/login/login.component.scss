@@ -36,7 +36,16 @@ input {
   font-size: 14px;
 }
 
+// Workaround to remove background in Chrome added on autofill
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .forgot-pass {
+  width: max-content;
   font-size: 14px;
   color: $basic-dark-grey;
   padding: 0 5px;
@@ -53,9 +62,12 @@ input {
       padding-bottom: 9px;
       border-bottom: 2px solid $light-green-hover;
     }
+  }
 
-    fa-icon {
-      color: $light-green-hover;
+  &.invalid {
+    input {
+      padding-bottom: 9px;
+      border-bottom: 2px solid tomato;
     }
   }
 
@@ -64,6 +76,14 @@ input {
     top: calc(50% - 10px);
     left: 5px;
     color: $basic-dark-grey;
+  }
+
+  .alert {
+    color: tomato;
+    position: absolute;
+    font-size: 12px;
+    bottom: -18px;
+    left: 0;
   }
 }
 

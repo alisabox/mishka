@@ -6,30 +6,46 @@
 
     <!-- Login form -->
 
-    <form method="post">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       
       <!-- Email -->
-      <div class="form-field">
+      <div
+        class="form-field"
+        [ngClass]="{ 'invalid': email && email.invalid && (email.dirty || email.touched)}"
+      >
         <fa-icon [icon]="faEnvelope"></fa-icon>
-        <label class="visually-hidden">E-mail</label>
+        <label class="visually-hidden" for="email">E-mail</label>
         <input
+          formControlName="email"
           type="email"
-          name="email"
+          id="email"
           placeholder="Email"
           required
         />
+        <div *ngIf="email && email.invalid && (email.dirty || email.touched)" class="alert">
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['pattern']">A valid email is required.</div>
+        </div>
       </div>
       
       <!-- Password -->
-      <div class="form-field">
+      <div
+        class="form-field"
+        [ngClass]="{ 'invalid': password && password.invalid && (password.dirty || password.touched)}"
+      >
         <fa-icon [icon]="faLock"></fa-icon>
-        <label class="visually-hidden">Password</label>
+        <label class="visually-hidden" for="password">Password</label>
         <input
+          formControlName="password"
           type="password"
-          name="password"
+          id="password"
           placeholder="Password"
           required
         />
+        <div *ngIf="password && password.invalid && (password.dirty || password.touched)" class="alert">
+          <div *ngIf="password.errors?.['required']">Password is required.</div>
+          <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</div>
+        </div>
       </div>
 
       <a class="forgot-pass" [routerLink]="'#'">Forgot password</a>

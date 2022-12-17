@@ -20,4 +20,7 @@ export class ButtonComponent {
 
   @Input('btnStyle')
   public btnStyle: BtnStyle = 'basic';
+
+  @Input('btnDisabled')
+  public btnDisabled: boolean = false;
 }

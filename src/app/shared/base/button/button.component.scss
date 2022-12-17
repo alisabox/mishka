@@ -48,3 +48,7 @@
     background-color: $dark-green;
   }
 }
+
+.button:disabled {
+  opacity: 0.6;
+}
