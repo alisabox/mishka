@@ -39,6 +39,7 @@ import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-confi
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { ThrobberComponent } from './shared/components/throbber/throbber.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoginComponent } from './components/login/login.component';
 
 export function setupTranslateServiceFactory(service: TranslateService) {
   return () => service.use('en');
@@ -76,6 +77,7 @@ export function setupAppConfigServiceFactory(service: AppConfigService) {
     UnitsPipe,
     ProductionComponent,
     ThrobberComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

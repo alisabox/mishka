@@ -3,6 +3,8 @@ import {
   Input,
 } from '@angular/core';
 
+export type BtnStyle = 'basic' | 'green';
+
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -16,6 +18,6 @@ export class ButtonComponent {
   @Input('path')
   public path: string | undefined;
 
-  @Input('uniqueClass')
-  public uniqueClass: string | undefined;
+  @Input('btnStyle')
+  public btnStyle: BtnStyle = 'basic';
 }

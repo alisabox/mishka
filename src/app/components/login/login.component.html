@@ -1,0 +1,60 @@
+<main class="page-inner">
+  <div class="page-inner__header">
+    <h1 class="page-inner__title">Login</h1>
+  </div>
+  <div class="login">
+
+    <!-- Login form -->
+
+    <form method="post">
+      
+      <!-- Email -->
+      <div class="form-field">
+        <fa-icon [icon]="faEnvelope"></fa-icon>
+        <label class="visually-hidden">E-mail</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      
+      <!-- Password -->
+      <div class="form-field">
+        <fa-icon [icon]="faLock"></fa-icon>
+        <label class="visually-hidden">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+
+      <a class="forgot-pass" [routerLink]="'#'">Forgot password</a>
+
+      <app-button [btnStyle]="'green'" [textContent]="'T_ACTION.LOGIN'"></app-button>
+    </form>
+
+    <!-- Login through third-party resources -->
+
+    <div class="alt-login">
+      <span>or login with</span>
+      <div class="logos">
+        <a href=""><fa-icon [icon]="faGoogle" class="google" size="lg"></fa-icon></a>
+        <a href=""><fa-icon [icon]="faFacebookF" class="fb" size="lg"></fa-icon></a>
+        <a href=""><fa-icon [icon]="faGithub" class="github" size="lg"></fa-icon></a>
+      </div>
+    </div>
+
+    <!-- Signup link -->
+
+    <div class="signup">
+      <div class="signup-wrapper">
+        <span>Don't have an account?</span>
+        <app-button [textContent]="'T_ACTION.SIGNUP'" [path]="'/signup'"></app-button>
+      </div>
+    </div>
+  </div>
+</main>

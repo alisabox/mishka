@@ -1,10 +1,10 @@
 <a *ngIf="path; else button"
-  class="button {{ uniqueClass }}" [routerLink]="[path]">
+  class="button {{ btnStyle }}" [routerLink]="[path]">
   {{ textContent | translate }}
 </a>
 
 <ng-template #button>
-  <button class="button {{ uniqueClass }}">
+  <button class="button {{ btnStyle }}">
     {{ textContent | translate }}
   </button>
 </ng-template>

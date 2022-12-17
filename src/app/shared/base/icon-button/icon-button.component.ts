@@ -7,6 +7,8 @@ import {
   faRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
+export type IconKey = 'cart' | 'login';
+
 @Component({
   selector: 'app-icon-button',
   templateUrl: './icon-button.component.html',
@@ -17,7 +19,7 @@ export class IconButtonComponent {
   faRightToBracket = faRightToBracket;
 
   @Input('iconKey')
-  public iconKey: string;
+  public iconKey: IconKey;
 
   @Input('textContent')
   public textContent: string;

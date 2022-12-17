@@ -1,0 +1,120 @@
+@import "../../../assets/styles/global/variables.scss";
+
+.login {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $tablet-width) {
+    margin-top: -30px;
+    gap: 35px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-top: -60px;
+  }
+}
+
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  @media (min-width: $tablet-width) {
+    padding: 0;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 10px 5px 10px 30px;
+  border: none;
+  border-bottom: 1px solid $light-grey-border;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.forgot-pass {
+  font-size: 14px;
+  color: $basic-dark-grey;
+  padding: 0 5px;
+}
+
+.form-field {
+  position: relative;
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    input {
+      outline: none;
+      padding-bottom: 9px;
+      border-bottom: 2px solid $light-green-hover;
+    }
+
+    fa-icon {
+      color: $light-green-hover;
+    }
+  }
+
+  fa-icon {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 5px;
+    color: $basic-dark-grey;
+  }
+}
+
+.alt-login,
+.signup {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: $tablet-width) {
+    padding: 0;
+  }
+}
+
+.logos {
+  width: 100%;
+  margin: 10px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+
+  fa-icon {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: $basic-white;
+  }
+
+  .google {
+    background-color: #ea4335;
+  }
+
+  .fb {
+    background-color: #3b5998;
+  }
+
+  .github {
+    background-color: $basic-black;
+  }
+}
+
+.signup-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+}

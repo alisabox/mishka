@@ -4,6 +4,8 @@
   "T_ACTION.MESSAGE_US": "Message us",
   "T_ACTION.MAKE_AN_ORDER": "Make an order",
   "T_ACTION.PLACE_ORDER": "Place order",
+  "T_ACTION.LOGIN": "Login",
+  "T_ACTION.SIGNUP": "Sign Up",
   "T_PRODUCT.HEIGHT": "Height",
   "T_PRODUCT.WEIGHT": "Weight",
   "T_PRODUCT.DIAMETER": "Diameter",
