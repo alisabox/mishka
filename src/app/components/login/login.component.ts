@@ -15,6 +15,7 @@ import {
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -60,6 +61,8 @@ export class LoginComponent {
     return this.loginForm.get('password');
   }
 
+  constructor(private readonly _authService: AuthService) { }
+
   public changePageMode(): void {
     this.formFlipped = true;
 
@@ -72,8 +75,11 @@ export class LoginComponent {
   public onSubmit(): void {
     this.loginForm.markAllAsTouched();
     if (this.loginForm.valid) {
-      // eslint-disable-next-line no-console
-      console.log(this.loginForm.value);
+      if (this.isLoginPage) {
+        // this._authService.SignIn(this.email?.value, this.password?.value);
+      } else {
+        this._authService.signUp(this.email?.value, this.password?.value);
+      }
     }
   }
 }

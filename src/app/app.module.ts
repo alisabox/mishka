@@ -42,6 +42,8 @@ import { ThrobberComponent } from './shared/components/throbber/throbber.compone
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './shared/services/auth.service';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 export function setupTranslateServiceFactory(service: TranslateService) {
   return () => service.use('en');
@@ -117,6 +119,8 @@ export function setupAppConfigServiceFactory(service: AppConfigService) {
       multi: true,
     },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'JPY' },
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    AuthService,
   ],
   bootstrap: [AppComponent],
 })
