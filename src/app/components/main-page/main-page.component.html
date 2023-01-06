@@ -3,9 +3,126 @@
   <p class="page-main__slogan">
     <b class="page-main__slogan-text">{{ 'T_APP.SLOGAN' | translate }}</b>
   </p>
-  <app-categories></app-categories>
-  <app-featured></app-featured>
-  <app-about></app-about>
-  <app-reviews></app-reviews>
-  <app-contacts></app-contacts>
+
+  <section class="categories">
+    <div class="categories__wrapper">
+      <h2 class="visually-hidden">{{ 'T_APP.CARTEGORY.TITLE' | translate }}</h2>
+      <ul class="categories__list">
+        <li class="categories__item categories__item--interior">
+          <a class="categories__link" [routerLink]="['catalog', 'decore']">
+            <p class="categories__text">{{ 'T_APP.CARTEGORY.HOME_DECORE' | translate }}</p>
+          </a>
+        </li>
+        <li class="categories__item categories__item--toys">
+          <a class="categories__link" [routerLink]="['catalog', 'toys']">
+            <p class="categories__text">{{ 'T_APP.CARTEGORY.TOYS' | translate }}</p>
+          </a>
+          </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="featured-item" *ngIf="featured">
+    <h2 class="visually-hidden">Bestseller</h2>
+    <div class="featured-item__wrapper">
+      <h3 class="featured-item__name">{{ featured.name }}</h3>
+      <p class="featured-item__tag">Bestseller of the week</p>
+      <p class="featured-item__description">{{ featured.description }}</p>
+      <div class="featured-item__details-table details-table">
+        <div class="details-table__row">
+          <div class="details-table__definition">{{ 'T_PRODUCT.COLOR' | translate }}:</div>
+          <div>{{ featured.color }}</div>
+        </div>
+          <div class="details-table__row">
+            <div class="details-table__definition">{{ 'T_PRODUCT.DIAMETER' | translate }}:</div>
+            <div>{{ featured.diameter }} cm</div>
+          </div>
+          <div class="details-table__row">
+            <div class="details-table__definition">{{ 'T_PRODUCT.HEIGHT' | translate }}:</div>
+            <div>{{ featured.height }} cm</div>
+          </div>
+        </div>
+        <app-picture
+          isFeatured
+          [fileName]="featured.img.name"
+          [altText]="featured.img.alt"
+          [height]="315"
+          [width]="260"
+        ></app-picture>
+      <p class="featured-item__price">Price: {{ featured.price | price}}</p>
+      <button class="button basic button-order">{{ 'T_ACTION.ORDER' | translate }}</button>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about__wrapper">
+      <h2 class="visually-hidden">Information about the shop</h2>
+      <p class="about__title">About us:</p>
+      <ul class="about__list">
+        <li class="about__item about__item--eco">Environmentally<br>friendly materials</li>
+        <li class="about__item about__item--hand-made">Hand-knitted<br>with love and tenderness</li>
+        <li class="about__item about__item--price">Scandinavian style<br>at an affordable price</li>
+        <li class="about__item about__item--local">Domestic manufacturer support</li>
+        <li class="about__item about__item--likes">Increases likes<br>on photos</li>
+        <li class="about__item about__item--wrapping">Delivered<br>in a gift box</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="reviews__wrapper">
+      <h2 class="reviews__title">Customer reviews</h2>
+      <blockquote class="reviews__item reviews__item--current">
+        <p class="reviews__text">I am a young mother, but all the same, the photos did not get close to as many likes as popular instamoms. In desperation, I bought accessories and toys in Mishka, and my photos immediately became more stylish, and also get more likes!</p>
+        <cite class="reviews__author-name">Nancy Yamato</cite>
+        <p class="reviews__author-email"><a href="mailto:@nyamato">@nyamato</a></p>
+      </blockquote>
+      <blockquote class="reviews__item">
+        <p class="reviews__text">I am a sister of the young mother, but still, the photos didn’t get close to as many likes as popular instamoms. In desperation, I bought accessories and toys in Mishka, and my photos immediately became more stylish, as well as getting more likes!</p>
+        <cite class="reviews__author-name">Punira Lapin</cite>
+        <p class="reviews__author-email"><a href="mailto:@punipin">@punipin</a></p>
+      </blockquote>
+      <blockquote class="reviews__item">
+        <p class="reviews__text">I am a cousin of the young mother, but still, the photos didn’t get close to as many likes as popular instamoms. In desperation, I bought accessories and toys in Mishka, and my photos immediately became more stylish, as well as getting more likes!</p>
+        <cite class="reviews__author-name">Nana Kawasaki</cite>
+        <p class="reviews__author-email"><a href="mailto:@nanahachi">@nanahachi</a></p>
+      </blockquote>
+      <p class="reviews__navigation">
+        <button class="button-review button-review--previous" aria-label="Previous review"></button>
+        <button class="button-review button-review--next" aria-label="Next review"></button>
+      </p>
+      <button class="button basic button-send-review">{{ 'T_ACTION.LEAVE_FEEDBACK' | translate }}</button>
+    </div>
+  </section>
+
+  <section class="contacts">
+    <div class="contacts__wrapper">
+      <h2 class="contacts__title">Access</h2>
+      <dl class="contacts__list">
+        <dt class="contacts__email">e-mail:</dt>
+        <dd class="contacts__text"><a href="mailto:info@mimimishkashop.com">info@mimimishkashop.com</a></dd>
+        <dt class="contacts__adress">address:</dt>
+        <dd class="contacts__text">Tokyo, 312 Nishiotecho, 16-01</dd>
+      </dl>
+      <div class="contacts__map-wrapper">
+        <iframe
+          class="contacts__map"
+          aria-label="Access to the shop"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.747798533312!2d139.74324421559677!3d35.65858483882047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2sTokyo%20Tower!5e0!3m2!1sen!2sjp!4v1662268596163!5m2!1sen!2sjp"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <button class="button basic button-send-email">{{ 'T_ACTION.MESSAGE_US' | translate }}</button>
+    </div>
+  </section>
 </main>
+
+<app-modal 
+  *ngIf="activeModal"
+  (closeModal)="closeModal()"
+></app-modal>

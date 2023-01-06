@@ -1,12 +1,25 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FirestoreService } from 'src/app/shared/services/firestore.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { ReplaySubject, takeUntil } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
+import { CommonModule } from '@angular/common';
+import { TranslatePipe } from 'src/app/shared/pipes/translate.pipe';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ThrobberComponent } from 'src/app/shared/components/throbber/throbber.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    TranslatePipe,
+    ProductCardComponent,
+    ThrobberComponent,
+    RouterModule,
+  ],
 })
 export class CatalogComponent implements OnInit, OnDestroy {
   private _products: Product[];

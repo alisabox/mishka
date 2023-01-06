@@ -15,7 +15,7 @@ import {
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',

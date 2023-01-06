@@ -9,5 +9,13 @@
       <app-product-card *ngFor="let product of products" class="item" [product]="product"></app-product-card>
     </ul>
   </section>
-  <app-production *ngIf="isLoaded"></app-production>
+  <section class="production" *ngIf="isLoaded">
+    <h2 class="production__title">{{ 'T_APP.CATALOG_PAGE.PRODUCTION_PROCCESS' | translate }}</h2>
+    <div class="production__video-wrapper">
+      <video class="production__video" preload="none"></video>
+      <button class="production__video-control" aria-label="Start video playback"></button>
+    </div>
+    <p class="production__description">At the request of our beloved followers, we made a detailed video for you about how our products appear.</p>
+    <a class="button basic production__order" [routerLink]="['order']">{{ 'T_ACTION.MAKE_AN_ORDER' | translate }}</a>
+  </section>
 </main> 
