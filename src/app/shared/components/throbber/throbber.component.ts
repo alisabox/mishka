@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
     </div>
   `,
   styleUrls: ['./throbber.component.scss'],
+  standalone: true,
 })
 export class ThrobberComponent {
 }

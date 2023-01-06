@@ -50,7 +50,7 @@
 
       <a class="forgot-pass" [routerLink]="'#'">Forgot password</a>
 
-      <app-button [btnStyle]="'green'" [textContent]="isLoginPage ? 'T_ACTION.LOGIN' : 'T_ACTION.SIGNUP'"></app-button>
+      <button class="button green">{{ (isLoginPage ? 'T_ACTION.LOGIN' : 'T_ACTION.SIGNUP') | translate }}</button>
     </form>
 
     <!-- Login / sign up through third-party resources -->
@@ -67,12 +67,12 @@
     <div class="signup">
       <div class="signup-wrapper" *ngIf="isLoginPage; else signUpPage">
         <span>Don't have an account?</span>
-        <app-button [textContent]="'T_ACTION.SIGNUP'" (click)="changePageMode()"></app-button>
+        <button class="button" (click)="changePageMode()">{{ 'T_ACTION.SIGNUP' | translate }}</button>
       </div>
       <ng-template #signUpPage>
         <div class="signup-wrapper">
           <span>Already have an account?</span>
-          <app-button [textContent]="'T_ACTION.LOGIN'" (click)="changePageMode()"></app-button>
+          <button class="button basic" (click)="changePageMode()">{{ 'T_ACTION.LOGIN' | translate }}</button>
         </div>
       </ng-template>
     </div>

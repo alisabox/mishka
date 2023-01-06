@@ -24,11 +24,16 @@
           </li>
         </ul>
         <ul class="page-navigation__list user-navigation">
-          <li class="user-navigation__cart">
-            <app-icon-button [textContent]="'T_APP.CART.EMPTY'" [iconKey]="'cart'"></app-icon-button>
+          <li class="user-navigation__item">
+            <a [routerLink]="['cart']">
+              <mat-icon fontSet="material-icons-outlined">shopping_cart</mat-icon>
+            </a>
           </li>
-          <li class="user-navigation__cart">
-            <app-icon-button [textContent]="'T_APP.LOGIN'" [iconKey]="'login'"></app-icon-button>
+          <li class="user-navigation__item">
+            <a [routerLink]="['login']">
+              <mat-icon fontSet="material-icons-outlined">home</mat-icon>
+              <span>{{ 'T_APP.LOGIN' | translate }}</span>
+            </a>
           </li>
         </ul>
         <ul class="page-navigation__list aside-navigation">

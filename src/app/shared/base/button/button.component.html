@@ -1,6 +1,6 @@
 <a *ngIf="path; else button"
   class="button {{ btnStyle }}" [routerLink]="[path]">
-  {{ textContent | translate }}
+  {{ textContent }}
 </a>
 
 <ng-template #button>
@@ -8,6 +8,6 @@
     class="button {{ btnStyle }}"
     [disabled]="btnDisabled"
   >
-    {{ textContent | translate }}
+    {{ textContent }}
   </button>
 </ng-template>

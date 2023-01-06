@@ -10,7 +10,12 @@
     <p class="catalog-item__description">{{ 'T_PRODUCT.HEIGHT' | translate }} {{ product.height }} cm, {{ 'T_PRODUCT.WEIGHT' | translate | lowercase }} {{ product.weight }} g</p>
     <div class="catalog-item__bottom">
       <p class="catalog-item__price">{{ product.price | currency }}</p>
-      <app-icon-button aria-label="Add to cart" [iconKey]="'cart'"></app-icon-button>
+      <mat-icon
+        class="catalog-item__add"
+        fontSet="material-icons-outlined"
+        matTooltip="Add to cart"
+        aria-label="Add to cart"
+      >add_shopping_cart</mat-icon>
     </div>
   </div>
 </li>

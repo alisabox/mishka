@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ImageUrlTypes } from 'src/app/models/product.model';
 
@@ -5,6 +6,10 @@ import { ImageUrlTypes } from 'src/app/models/product.model';
   selector: 'app-picture',
   templateUrl: './picture.component.html',
   styleUrls: ['./picture.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+  ],
 })
 export class PictureComponent {
   private _height: string = '195';
