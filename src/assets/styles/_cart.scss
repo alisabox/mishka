@@ -1,3 +1,7 @@
+.cart {
+  text-align: center;
+}
+
 .cart-form {
   fieldset {
     border: none;
@@ -27,11 +31,12 @@
     -webkit-appearance: none;
   }
 
-  .label {
+  .price {
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 60px;
   }
 
   .bordered-label {
@@ -59,9 +64,8 @@
   }
 
   .quantity-wrapper {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+    padding-top: 22px;
+    text-align: center;
   }
 
   .cart-input {

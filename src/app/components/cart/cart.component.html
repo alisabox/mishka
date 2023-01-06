@@ -2,7 +2,7 @@
   <div class="page-inner__header">
     <h1 class="page-inner__title">{{ 'T_APP.CART.TITLE' | translate }}</h1>
   </div>
-  <section class="catalog">
+  <section class="catalog" *ngIf="products.length; else emptyCart">
     <h2 class="visually-hidden">{{ 'T_APP.CART.LIST' | translate }}</h2>
     <form class="cart-form">
       <fieldset>
@@ -12,16 +12,15 @@
               <th>Description</th>
               <th>Size</th>
               <th>Quantity</th>
-              <th>Remove</th>
               <th>Price</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let item of products">
               <td>
                 <div class="description-wrapper">
-                  <h3>Product name</h3>
-                  <img src="" height="50" width="50">
+                  <h3>{{ item.product.name }}</h3>
+                  <img src="{{ item.product.img.url.mobile }}" alt="{{ item.product.img.alt }}" height="50" width="50">
                 </div>
               </td>
               <td>
@@ -29,40 +28,20 @@
               </td>
               <td>
                 <div class="quantity-wrapper">
-                  <button class="cart-button quantity-button quantity-button__minus">-</button>
-                  <input class="cart-input quantity-input " type="number" value="1" min="1" max="99">
-                  <button class="cart-button quantity-button quantity-button__plus">+</button>
+                  <mat-form-field appearance="fill">
+                    <mat-select [value]="item.quantity.toString()" (valueChange)="updateQuantity($event, item.product.id)">
+                      <mat-option value="0">0 (Delete Item)</mat-option>
+                      <mat-option value="1">1</mat-option>
+                      <mat-option value="2">2</mat-option>
+                      <mat-option value="3">3</mat-option>
+                      <mat-option value="4">4</mat-option>
+                      <mat-option value="5">5</mat-option>
+                    </mat-select>
+                  </mat-form-field>
                 </div>
               </td>
               <td>
-                <span class="bordered-label">x</span>
-              </td>
-              <td>
-                <span class="label">{{ 400 | currency }}</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="description-wrapper">
-                  <h3>Product name</h3>
-                  <img src="" height="50" width="50">
-                </div>
-              </td>
-              <td>
-                <span class="bordered-label">M</span>
-              </td>
-              <td>
-                <div class="quantity-wrapper">
-                  <button class="cart-button quantity-button quantity-button__minus">-</button>
-                  <input class="cart-input quantity-input " type="number" value="1" min="1" max="99">
-                  <button class="cart-button quantity-button quantity-button__plus">+</button>
-                </div>
-              </td>
-              <td>
-                <span class="bordered-label">x</span>
-              </td>
-              <td>
-                <span class="label">{{ 400 | currency }}</span>
+                <span class="price">{{ (item.product.price * item.quantity) | currency }}</span>
               </td>
             </tr>
           </tbody>
@@ -74,16 +53,23 @@
         <p>Enter your promo code if you have one.</p>
         <div class="promo-code-wrapper">
           <input class="cart-input promo-code-input" type="text" placeholder="Please enter your promo code"/>
-          <button class="cart-button" type="submit">Apply Discount</button>
+          <button class="button basic cart-button" type="submit" (click)="applyDiscount($event)">Apply Discount</button>
         </div>
       </form>
       <div class="cart-total">
         <p class="cart-total-sum">
           <b>TOTAL</b>
-          <b>{{ 800 | currency }}</b>
+          <b>{{ sum | currency }}</b>
         </p>
-        <button class="cart-button submit-button">Checkout</button>
+        <button class="button green cart-button submit-button" (click)="checkOut($event)">Checkout</button>
       </div>
     </div>
   </section>
+
+  <ng-template #emptyCart>
+    <section class="cart">
+      <h2 class="visually-hidden">{{ 'T_APP.CART.LIST' | translate }}</h2>
+      <p>There is nothing in your cart yet.</p>
+    </section>
+  </ng-template>
 </main>

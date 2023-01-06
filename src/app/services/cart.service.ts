@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 
-interface CartProduct {
-  [key: Product['id']]: {
-    product: Product;
-    quantity: number;
-  }
+export interface CartProduct {
+  product: Product;
+  quantity: number;
 }
 
 @Injectable({
@@ -13,24 +11,40 @@ interface CartProduct {
 })
 export class CartService {
 
-  private _products: CartProduct = {};
+  private _products: CartProduct[] = [];
 
   public addToCart(product: Product): void {
-    if (product.id in this._products) {
-      this._products[product.id].quantity += 1;
+    const addedProduct = this._products.find(item => item.product.id === product.id);
+    if (addedProduct) {
+      addedProduct.quantity += 1;
     } else {
-      this._products[product.id] = {
-        product: product,
+      this._products.push({
+        product,
         quantity: 1,
-      };
+      });
     }
   }
 
-  public getItems(): CartProduct {
+  public updateQuantity(productId: string | number, newQuantity: number): void {
+    const updatedProduct = this._products.find(item => item.product.id === productId);
+
+    if (updatedProduct) {
+      updatedProduct.quantity = newQuantity;
+    }
+  }
+
+  public removeProduct(productId: string | number): void {
+    const index = this._products.findIndex(item => item.product.id === productId);
+    this._products = [...this._products.slice(0, index), ...this._products.slice(index + 1)];
+    // eslint-disable-next-line no-console
+    console.log(this._products);
+  }
+
+  public getItems(): CartProduct[] {
     return this._products;
   }
 
   public clearCart(): void {
-    this._products = {};
+    this._products = [];
   }
 }

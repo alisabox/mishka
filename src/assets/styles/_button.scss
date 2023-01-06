@@ -41,9 +41,12 @@
   background-color: $light-green;
 
   &:hover,
-  &:focus,
-  &:active {
+  &:focus {
     background-color: $dark-green;
+  }
+
+  &:active {
+    color: rgba($basic-white, 0.3);
   }
 }
 
