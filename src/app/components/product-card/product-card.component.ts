@@ -10,6 +10,7 @@ import { PictureComponent } from 'src/app/shared/base/picture/picture.component'
 import { TranslatePipe } from 'src/app/shared/pipes/translate.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -28,4 +29,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 export class ProductCardComponent {
   @Input('product')
   public product: Product;
+
+  constructor(
+    private readonly _cartService: CartService,
+  ) { }
+
+  public addToCart(): void {
+    this._cartService.addToCart(this.product);
+  }
 }

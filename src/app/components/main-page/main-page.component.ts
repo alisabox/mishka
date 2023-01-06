@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
-import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { PricePipe } from 'src/app/shared/pipes/price.pipe';
 import { TranslatePipe } from 'src/app/shared/pipes/translate.pipe';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -40,7 +40,7 @@ export class MainPageComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._service.getFeatured().subscribe((featured) => this._featured = featured[0]);
   }
 

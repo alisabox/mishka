@@ -4,8 +4,8 @@ import { ReplaySubject, takeUntil } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from 'src/app/shared/pipes/translate.pipe';
-import { ProductCardComponent } from './product-card/product-card.component';
-import { ThrobberComponent } from 'src/app/shared/components/throbber/throbber.component';
+import { ProductCardComponent } from '../product-card/product-card.component';
+import { ThrobberComponent } from 'src/app/components/throbber/throbber.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
