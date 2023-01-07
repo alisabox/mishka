@@ -3,7 +3,7 @@
     <h1 class="page-inner__title">{{ 'T_APP.CATALOG_PAGE.TITLE' | translate }}</h1>
   </div>
   <section class="catalog">
-    <app-throbber *ngIf="!isLoaded"></app-throbber>
+    <mat-spinner class="spinner" *ngIf="!isLoaded"></mat-spinner>
     <h2 class="visually-hidden">{{ 'T_APP.CATALOG_PAGE.LIST' | translate }}</h2>
     <ul *ngIf="isLoaded" class="catalog__list">
       <app-product-card *ngFor="let product of products" class="item" [product]="product"></app-product-card>
