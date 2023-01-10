@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -16,6 +16,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { AuthService } from 'src/app/services/auth.service';
+import {
+  ActivatedRoute,
+  Router,
+} from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -31,9 +36,8 @@ import { AuthService } from 'src/app/services/auth.service';
     ]),
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   public readonly faEnvelope = faEnvelope;
   public readonly faLock = faLock;
   public readonly faGoogle = faGoogle;
@@ -61,12 +65,27 @@ export class LoginComponent {
     return this.loginForm.get('password');
   }
 
-  constructor(private readonly _authService: AuthService) { }
+  constructor(
+    private readonly _authService: AuthService,
+    private readonly _activatedRoute: ActivatedRoute,
+    private readonly _router: Router,
+    private readonly _snackBar: MatSnackBar,
+  ) { }
+
+  public ngOnInit(): void {
+    if (this._activatedRoute.snapshot.url[0].path === 'sign-up') {
+      this._isLoginPage = false;
+    }
+  }
 
   public changePageMode(): void {
     this.formFlipped = true;
 
     setTimeout(() => {
+      this._isLoginPage
+        ? this._router.navigate(['sign-up'])
+        : this._router.navigate(['login']);
+
       this._isLoginPage = !this._isLoginPage;
       this.formFlipped = false;
     }, 250);
@@ -74,9 +93,16 @@ export class LoginComponent {
 
   public onSubmit(): void {
     this.loginForm.markAllAsTouched();
+
     if (this.loginForm.valid) {
       if (this.isLoginPage) {
-        // this._authService.SignIn(this.email?.value, this.password?.value);
+        this._authService.logIn(this.email?.value, this.password?.value)
+          .subscribe(() => {
+            this._snackBar.open('You have successfully logged in.', 'Close', {
+              verticalPosition: 'top',
+              duration: 2000,
+            });
+          });
       } else {
         this._authService.signUp(this.email?.value, this.password?.value);
       }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 
 export interface CartProduct {
@@ -11,6 +11,11 @@ export interface CartProduct {
 })
 export class CartService {
   private _products: CartProduct[] = [];
+  private _products$: EventEmitter<CartProduct[]> = new EventEmitter<CartProduct[]>();
+
+  public get products$(): EventEmitter<CartProduct[]> {
+    return this._products$;
+  }
 
   constructor() {
     this._products = JSON.parse(localStorage.getItem('products') || '[]');
@@ -59,5 +64,6 @@ export class CartService {
 
   private _syncProducts(): void {
     localStorage.setItem('products', JSON.stringify(this._products));
+    this._products$.emit(this._products);
   }
 }

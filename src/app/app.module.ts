@@ -28,6 +28,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { TranslatePipe } from './shared/pipes/translate.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 export function setupTranslateServiceFactory(service: TranslateService) {
   return () => service.use('en');
@@ -57,6 +59,8 @@ export function setupAppConfigServiceFactory(service: AppConfigService) {
     HttpClientModule,
     MatIconModule,
     MatTooltipModule,
+    MatBadgeModule,
+    MatSnackBarModule,
     TranslatePipe,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

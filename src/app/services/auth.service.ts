@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore } from '@angular/fire/firestore';
@@ -33,12 +33,17 @@ export type UserCredential = firebase.auth.UserCredential;
 })
 export class AuthService {
   private _user: firebase.User;
+  private _isLoggedIn$: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public get isLoggedIn(): boolean {
     const userData = localStorage.getItem('user');
     const user = userData && JSON.parse(userData);
 
     return user && user.emailVerified;
+  }
+
+  public get isLoggedIn$(): EventEmitter<boolean> {
+    return this._isLoggedIn$;
   }
 
   constructor(
@@ -54,12 +59,13 @@ export class AuthService {
     });
   }
 
-  public signIn(email: string, password: string): Observable<User> {
+  public logIn(email: string, password: string): Observable<User> {
     return from(this._fireAuth.signInWithEmailAndPassword(email, password))
       .pipe(
         switchMap((data: UserCredential) => {
           if (data.user) {
             this._router.navigate(['/']);
+            this._isLoggedIn$.emit(true);
 
             return of(data.user);
           }
@@ -67,6 +73,15 @@ export class AuthService {
           return EMPTY;
         }),
       );
+  }
+
+  public logOut(): Observable<void> {
+    return from(this._fireAuth.signOut())
+      .pipe(tap(() => {
+        localStorage.removeItem('user');
+        this._isLoggedIn$.emit(false);
+        this._router.navigate(['login']);
+      }));
   }
 
   public signUp(email: string, password: string): Observable<User> {
@@ -147,13 +162,5 @@ export class AuthService {
 
     return from(setDoc(userRef, userData, { merge: true }))
       .pipe(map(() => userData));
-  }
-
-  public signOut(): Observable<void> {
-    return from(this._fireAuth.signOut())
-      .pipe(tap(() => {
-        localStorage.removeItem('user');
-        this._router.navigate(['sign-in']);
-      }));
   }
 }

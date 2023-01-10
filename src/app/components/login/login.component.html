@@ -6,7 +6,11 @@
 
     <!-- Login / sign up form -->
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form
+      class="login-form"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+    >
       
       <!-- Email -->
       <div
@@ -58,16 +62,25 @@
     <div class="alt-login">
       <span>or {{ isLoginPage ? 'login' : 'sign up'}} with</span>
       <div class="logos">
-        <a href=""><fa-icon [icon]="faGoogle" class="google" size="lg"></fa-icon></a>
-        <a href=""><fa-icon [icon]="faFacebookF" class="fb" size="lg"></fa-icon></a>
-        <a href=""><fa-icon [icon]="faGithub" class="github" size="lg"></fa-icon></a>
+        <button
+          matTooltip="{{ isLoginPage ? 'Login through Google' : 'Sign up through Google' }}"
+          aria-label="Add to cart"
+        ><fa-icon [icon]="faGoogle" class="google" size="lg"></fa-icon></button>
+        <button
+          matTooltip="{{ isLoginPage ? 'Login through Facebook' : 'Sign up through Facebook' }}"
+          aria-label="Add to cart"
+        ><fa-icon [icon]="faFacebookF" class="fb" size="lg"></fa-icon></button>
+        <button
+          matTooltip="{{ isLoginPage ? 'Login through GitHub' : 'Sign up through GitHub' }}"
+          aria-label="Add to cart"
+        ><fa-icon [icon]="faGithub" class="github" size="lg"></fa-icon></button>
       </div>
     </div>
 
     <div class="signup">
       <div class="signup-wrapper" *ngIf="isLoginPage; else signUpPage">
         <span>Don't have an account?</span>
-        <button class="button" (click)="changePageMode()">{{ 'T_ACTION.SIGNUP' | translate }}</button>
+        <button class="button basic" (click)="changePageMode()">{{ 'T_ACTION.SIGNUP' | translate }}</button>
       </div>
       <ng-template #signUpPage>
         <div class="signup-wrapper">
