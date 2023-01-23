@@ -24,7 +24,7 @@
           </li>
         </ul>
         <ul class="page-navigation__list user-navigation">
-          <li class="user-navigation__item">
+          <li class="user-navigation__item user-navigation__item--cart">
             <a [routerLink]="['cart']" 
               matTooltip="{{ productsInCart ? 'See cart' : 'Cart is empty' }}"
             >
@@ -34,9 +34,10 @@
                 [matBadgeHidden]="!productsInCart"
                 matBadgeColor="warn"
               >shopping_cart</mat-icon>
+              <span class="user-navigation__item-text">{{ 'T_APP.CART' | translate }}</span>
             </a>
           </li>
-          <li class="user-navigation__item">
+          <li class="user-navigation__item user-navigation__item--login">
             <button *ngIf="isLoggedIn; else logIn" (click)="logOut()">
               <mat-icon fontSet="material-icons-outlined">logout</mat-icon>
               <span class="user-navigation__item-text">{{ 'T_APP.LOGOUT' | translate }}</span>

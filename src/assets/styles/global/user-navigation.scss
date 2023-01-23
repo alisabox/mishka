@@ -60,6 +60,23 @@
   }
 }
 
+
+.page-navigation mat-icon {
+  @media (max-width: $mobile-width-only) {
+    display: none;
+  }
+}
+
+.user-navigation__item--cart .user-navigation__item-text {
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.user-navigation__item--login mat-icon {
+  margin-left: 20px;
+}
+
 .user-navigation__cart a,
 .user-navigation__cart .current-page {
   position: relative;
