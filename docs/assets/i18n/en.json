@@ -4,6 +4,8 @@
   "T_ACTION.MESSAGE_US": "Message us",
   "T_ACTION.MAKE_AN_ORDER": "Make an order",
   "T_ACTION.PLACE_ORDER": "Place order",
+  "T_ACTION.LOGIN": "Login",
+  "T_ACTION.SIGNUP": "Sign Up",
   "T_PRODUCT.HEIGHT": "Height",
   "T_PRODUCT.WEIGHT": "Weight",
   "T_PRODUCT.DIAMETER": "Diameter",
@@ -17,6 +19,10 @@
   "T_APP.MENU.FREE_DELIVERY": "Free delivery throughout Japan",
   "T_APP.CART.ABOUT": "About us:",
   "T_APP.CART": "Cart",
+  "T_APP.LOGIN": "Login",
+  "T_APP.LOGOUT": "Logout",
+  "T_APP.CART.TITLE": "Shopping Cart",
+  "T_APP.CART.LIST": "List of products",
   "T_APP.CART.EMPTY": "Cart: empty",
   "T_APP.CATALOG_PAGE.TITLE": "Catalog",
   "T_APP.CATALOG_PAGE.LIST": "List of products",
@@ -30,5 +36,6 @@
   "T_APP.ACCESS": "Access",
   "T_APP.ACCESS.EMAIL": "e-mail:",
   "T_APP.ACCESS.ADDRESS": "address:",
-  "T_APP.COPYRIGHT": "Special thanks to"
+  "T_APP.COPYRIGHT": "Special thanks to",
+  "T_APP.NOT_FOUND": "Page not found"
 }

@@ -129,9 +129,10 @@
   }
 }
 
-.catalog-item__add svg {
+.catalog-item__add {
   color: rgba($basic-black, 0.2);
   margin-right: -4px;
+  cursor: pointer;
 
   &:hover {
     color: $light-green;

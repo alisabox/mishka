@@ -1,0 +1,7 @@
+.spinner {
+  margin: 0 auto;
+
+  .mdc-circular-progress__indeterminate-container svg {
+    stroke: $decoration-grey;
+  }
+}

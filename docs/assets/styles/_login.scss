@@ -1,0 +1,145 @@
+.login {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $tablet-width) {
+    margin-top: -30px;
+    gap: 35px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-top: -60px;
+  }
+}
+
+.login-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  @media (min-width: $tablet-width) {
+    padding: 0;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 5px 10px 30px;
+    border: none;
+    border-bottom: 1px solid $light-grey-border;
+    font-family: inherit;
+    font-size: 14px;
+  }
+}
+
+// Workaround to remove background in Chrome added on autofill
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.forgot-pass {
+  width: max-content;
+  font-size: 14px;
+  color: $basic-dark-grey;
+  padding: 0 5px;
+}
+
+.form-field {
+  position: relative;
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    input {
+      outline: none;
+      padding-bottom: 9px;
+      border-bottom: 2px solid $light-green-hover;
+    }
+  }
+
+  &.invalid {
+    input {
+      padding-bottom: 9px;
+      border-bottom: 2px solid tomato;
+    }
+  }
+
+  fa-icon {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 5px;
+    color: $basic-dark-grey;
+  }
+
+  .alert {
+    color: tomato;
+    position: absolute;
+    font-size: 12px;
+    bottom: -18px;
+    left: 0;
+  }
+}
+
+.alt-login,
+.signup {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: $tablet-width) {
+    padding: 0;
+  }
+}
+
+.logos {
+  width: 100%;
+  margin: 10px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+
+  button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  fa-icon {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: $basic-white;
+  }
+
+  .google {
+    background-color: #ea4335;
+  }
+
+  .fb {
+    background-color: #3b5998;
+  }
+
+  .github {
+    background-color: $basic-black;
+  }
+}
+
+.signup-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+}

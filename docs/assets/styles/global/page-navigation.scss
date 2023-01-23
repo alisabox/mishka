@@ -75,6 +75,7 @@
 }
 
 .page-navigation__list a,
+.page-navigation__list button,
 .page-navigation__list .current-page {
   display: flex;
   align-items: center;
@@ -84,7 +85,6 @@
   font-weight: bold;
   line-height: 24px;
   color: $basic-black;
-  padding-left: 76px;
 }
 
 .page-navigation__delivery-info {

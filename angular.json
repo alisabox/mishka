@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/mishka/",
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -41,8 +42,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -110,6 +111,7 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
+            "baseHref": "/mishka/",
             "prerender": false,
             "ssr": false,
             "browserTarget": "mishka:build:production",

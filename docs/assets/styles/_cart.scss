@@ -1,0 +1,137 @@
+.cart {
+  text-align: center;
+}
+
+.cart-form {
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 30px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead {
+    height: 50px;
+  }
+
+  tr {
+    border-bottom: 2px solid rgba($basic-dark-grey, 0.1);
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  input[type=number]::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .price {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+  }
+
+  .bordered-label {
+    margin: 0 auto;
+    border: 2px solid rgba($basic-dark-grey, 0.1);
+    width: 48px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid rgba($basic-dark-grey, 0.3);
+    }
+  }
+
+  .description-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .quantity-wrapper {
+    padding-top: 22px;
+    text-align: center;
+  }
+
+  .cart-input {
+    border: 2px solid rgba($basic-dark-grey, 0.1);
+    border-right: none;
+    height: 42px;
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  .quantity-input {
+    border-left: none;
+    width: 54px;
+    text-align: center;
+  }
+
+  .promo-code-input {
+    padding: 7px 14px;
+  }
+
+  .cart-button {
+    border: 2px solid rgba($basic-dark-grey, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid rgba($basic-dark-grey, 0.3);
+    }
+  }
+
+  .quantity-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .submit-button {
+    width: 100%;
+    height: 60px;
+  }
+
+  .price-label {
+    margin: 0 auto;
+  }
+}
+
+.cart-footer {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 50px;
+
+  .promo-code-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+  }
+
+  .cart-total {
+    text-align: end;
+  }
+
+  .cart-total-sum {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+  }
+}
