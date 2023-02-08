@@ -30,7 +30,6 @@
 }
 
 .form__legend {
-  width: 60px;
   font-family: "Open Sans Bold", "Arial", sans-serif;
   font-weight: 700;
   line-height: 16px;
@@ -38,6 +37,7 @@
   color: $light-green;
 
   @media (min-width: $tablet-width) {
+    width: 60px;
     position: absolute;
     top: 67px;
     left: 50px;
